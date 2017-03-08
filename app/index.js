@@ -115,6 +115,9 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
       this.template('drupal/_scripts.js', 'src/js/script.js', this.promptinput);
       this.template('drupal/_README.txt', 'README.txt', this.promptinput);
       this.directory('drupal/templates', 'templates');
+      this.src.copy('drupal/favicon.ico', 'favicon.ico');
+      this.src.copy('drupal/logo.png', 'logo.png');
+      this.src.copy('drupal/screenshot.png', 'screenshot.png');
 
     }
   },

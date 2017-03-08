@@ -83,12 +83,6 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
 
 
       // this.dest.mkdir('src');
-      // this.dest.mkdir('vendor');
-      // this.dest.mkdir('config/install');
-
-
-      // this.dest.mkdir('app');
-      // this.dest.mkdir('app/templates');
     },
 
     architecture: function () {

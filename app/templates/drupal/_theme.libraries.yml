@@ -12,6 +12,7 @@
   js:
     # header: true # Uncomment to load in header
     build/js/scripts.js: {}
+    build/js/responsive.js: {}
 
   dependencies:
    #- core/drupal # Includes Drupal Behaviors!

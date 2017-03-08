@@ -45,3 +45,27 @@ If you'd like to get to know Yeoman better and meet some of his friends, [Grunt]
 ## License
 
 MIT
+
+
+------------------------------------------------
+### RAPID GENERATOR
+------------------------------------------------
+
+
+### Installing locally
+
+Clone the repository, change directory and install the generators dependencies with the following command:
+
+```bash
+git clone https://github.com/jswitchback/generator-rapid.git && cd generator-rapid && npm link && npm install
+```
+
+### Generating a theme or module
+
+Generate a new theme or module from templates in any directory:
+
+```bash
+yo rapid
+yo rapid:module
+```
+

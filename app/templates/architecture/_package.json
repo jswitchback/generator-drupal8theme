@@ -19,6 +19,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "init": "gulp init",
     "watch": "gulp watch",
     "postinstall": "find node_modules/ -name '*.info' -type f -delete"
   },

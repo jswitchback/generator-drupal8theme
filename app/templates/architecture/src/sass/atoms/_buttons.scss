@@ -1,0 +1,14 @@
+/* @partial _buttons.scss */
+
+
+// Change this mixin @ _mixins.scss as needed.
+// Mixin arguments: button--submit($btn-color: #000000, $btn-radius: $button-border-radius, $btn-padding: $input-padding) {
+
+.button {
+  @include button--submit($button-color);
+}
+
+// Example
+// .button--black {
+//   @include button--submit(#000);
+// }

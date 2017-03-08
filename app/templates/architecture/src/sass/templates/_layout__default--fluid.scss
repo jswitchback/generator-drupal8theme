@@ -1,0 +1,24 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+// @TODO: Change these to individual regions (header, content, footer)
+.layout-container,
+.region-footer {
+  @include layout-container;
+}
+
+.main,
+.region-footer {
+  @include layout-gutter;
+  @include micro-clearfix;
+}

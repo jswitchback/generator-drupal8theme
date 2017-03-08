@@ -1,0 +1,172 @@
+/* @partial typography */
+
+
+// Example font-face declaration
+// @font-face {
+//   font-family: 'Example';
+//   src: url('../fonts/example.eot');
+//   src: url('../fonts/example.eot?iefix') format('eot'),
+//     url('../fonts/example.woff') format('woff'),
+//     url('../fonts/example.ttf') format('truetype'),
+//     url('../fonts/example.svg#webfontOkOndcij') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+
+/**
+ * 1. Prevent iOS and IE text size adjust after device orientation change,
+ *    without disabling user zoom.
+ */
+
+html {
+  font-family: $body-font; /* 1 */
+  -ms-text-size-adjust: 100%; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 1 */
+  // Establish a vertical rhythm unit using $base-line-height.
+  line-height: $body-line-height;
+}
+
+/*  Header Styles
+   ========================================================================== */
+
+
+h1 {
+  @include h1; // Mixin found in _mixins.scss
+}
+
+h2 {
+  @include h2; // Mixin found in _mixins.scss
+}
+
+h3 {
+  @include h3; // Mixin found in _mixins.scss
+}
+
+h4, h5, h6 {
+  @include h4; // Mixin found in _mixins.scss
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: $page-title-color;
+  font-weight: bold;
+  font-family: $header-font;
+}
+
+
+/*  Misc
+   ========================================================================== */
+
+/* Thematic break. */
+hr {
+  height: 1px;
+  border: none;
+  background: $horizontal-rule-border;
+  padding: 0;
+  margin: ($vert-gutter*2) 0;
+}
+
+/*
+ * Addresses styling not present in IE7/8/9, S5, Chrome
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+  cursor: help;
+  white-space: nowrap;
+}
+
+/*
+ * Addresses style set to 'bolder' in FF3+, S4/5, Chrome
+*/
+
+b,
+strong {
+  font-weight: bold;
+}
+
+blockquote {
+  /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
+  margin: $vert-gutter $horiz-gutter;
+  border-left: (.2 * $base-font-size) solid $blockquote-border-color;
+  padding: (.5 * $base-font-size) $base-font-size;
+}
+
+/*
+ * Addresses styling not present in S5, Chrome
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/*
+ * Addresses styling not present in IE6/7/8/9
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/*
+ * 1. Contain overflow in all browsers.
+ * 2. Improves readability of pre-formatted text in all browsers
+ */
+
+pre {
+  overflow: auto; /* 1 */
+  /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
+  margin: $vert-gutter 0;
+  white-space: pre; /* 2 */
+  white-space: pre-wrap; /* 2 */
+  word-wrap: break-word; /* 2 */
+}
+
+p {
+  margin: 0 0 $vert-gutter 0;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/*
+ * Corrects font family set oddly in IE6, S4/5, Chrome
+ * en.wikipedia.org/wiki/User:Davidgothberg/Test59
+ */
+
+pre,
+code,
+kbd,
+samp,
+tt,
+var {
+  font-family: $font-monospace; /* The $font-monospace value ends with ", serif". */
+}
+
+/*
+ * Prevents sub and sup affecting line-height in all browsers
+ * gist.github.com/413930
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}

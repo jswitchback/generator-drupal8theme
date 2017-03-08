@@ -1,0 +1,54 @@
+/* @partial _messages.scss */
+
+
+/* System status report. */
+.ok,
+%ok {
+  background-color: $success-background;
+  color: $success-text;
+}
+.warning,
+%warning {
+  background-color: $warning-background;
+  color: $warning-text;
+}
+.error,
+%error {
+  background-color: $error-background;
+  color:  $error-text;
+}
+
+
+// Not sure classesare the same.
+.messages {
+  margin: $vert-gutter 0;
+  border: 1px solid $success-border;
+}
+
+.messages__status {
+  @extend .messages;
+  @extend %ok;
+}
+.messages__warning {
+  @extend .messages;
+  @extend %warning;
+  border-color: $warning-border;
+
+}
+.messages__error {
+  @extend .messages;
+  @extend %error;
+  border-color: $error-background;
+
+}
+.messages--list {
+  margin: 0;
+}
+.messages--item {
+  list-style-image: none;
+}
+
+/* Core/module installation error messages. */
+.messages__error  p.error {
+  color: #333;
+}

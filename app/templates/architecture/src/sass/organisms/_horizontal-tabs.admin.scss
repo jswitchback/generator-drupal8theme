@@ -1,0 +1,140 @@
+/* @partial horizontal-tabs */
+
+// These are overrides
+// @TODO Rewrite core file with variables & remove core's file.
+
+div.horizontal-tabs {
+  margin: 0 0 1em 0; /* LTR */
+  padding: 0;
+  position: relative; /* IE6/7 */
+}
+
+.horizontal-tabs-panes {
+  border: 1px solid $tabs-border-color;
+  margin-top: -9px;
+  border-bottom-radius: $tabs-border-radius;
+}
+
+.horizontal-tabs ul.horizontal-tabs-list {
+  display: inline-block;
+  margin: 0;
+  border: 0;
+  padding: 0px;
+  position: relative; /* IE6 */
+  list-style: none;
+  list-style-image: none; /* IE6 */
+  background-color: none;
+  width: 100%;
+  height: auto;
+  clear: both;
+}
+
+fieldset.field-group-htab {
+  margin: 0;
+  border-top-left-radius: 0;
+}
+
+.horizontal-tabs fieldset.horizontal-tabs-pane {
+  padding: 1em;
+  border: 0;
+  background: #fff;
+}
+
+.horizontal-tabs-pane>legend {
+  display: none;
+}
+
+/* Layout of each tab */
+.horizontal-tabs ul.horizontal-tabs-list li {
+  background: $tabs-background-color;
+  border-right: 1px solid $tabs-border-color;
+  border-top: 1px solid $tabs-border-color;
+  border-bottom: 1px solid $tabs-border-color;
+  padding: 1px;
+  padding-top: 0;
+  margin: 0;
+  min-width: 5em; /* IE7 */
+  float: left;
+  &.first {
+    border-left: 1px solid $tabs-border-color;
+  }
+  &.selected {
+    border-bottom: 1px solid #fff;
+    background-color: #fff;
+    padding: 0 0 1px 0;
+    a {
+      border-top: .25em solid $tabs-border-color--active;
+      color: #000;
+      display: block;
+      text-decoration: none;
+      padding: 0.5em 0.6em 0.3em 0.6em;
+      position: relative;
+      top: 0px;
+      &:hover, &:focus {
+        outline: none;
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+  a {
+    font-size: .875em;
+    display: block;
+    text-decoration: none;
+    padding: 0.5em 0.6em;
+    position: relative;
+    top: 0px;
+    &:hover {
+      outline: none;
+      color: $body-font-color;
+      background-color: #f1f1f1;
+      strong {
+        text-decoration: none;
+        outline: none;
+      }
+    }
+    &:focus,
+    &:active {
+      strong {
+        text-decoration: none;
+        outline: none;
+      }
+    }
+  }
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.horizontal-tabs ul.horizontal-tabs-list .selected strong {
+}
+.horizontal-tabs ul.horizontal-tabs-list .summary {
+  display: block;
+}
+.horizontal-tabs ul.horizontal-tabs ul.horizontal-tabs-list .summary {
+  line-height: normal;
+  margin-bottom: 0;
+}
+
+/**
+ * tab content
+ */
+div.field-group-htabs-wrapper .field-group-format-wrapper {
+  clear: both;
+  padding: 0 0 0.6em;
+}
+/*hide*/
+.horizontal-tabs .horizontal-tab-hidden {
+  display: block;
+  position: absolute;
+  top: -100000px;
+}
+
+/* ADDED */
+
+.horizontal-tabs-pane fieldset {
+  background: none;
+  border: none;
+}
+

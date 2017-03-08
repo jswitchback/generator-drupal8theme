@@ -1,0 +1,204 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the <%= themeMachineName %> theme.
+ */
+use Drupal\Core\Template\RenderWrapper;
+use Drupal\Core\Template\Attribute;
+
+//function <%= themeMachineName %>_preprocess_page(&$variables) {
+
+  // Example: adds js from libraries,yaml file
+  // if ($variables['is_front']) {
+  //   $variables['#attached']['library'][] = 'rapid/fancy-effect';
+  // }
+//}
+
+//function <%= themeMachineName %>_page_attachments_alter(array &$page) {
+  // $site_name = \Drupal::config('system.site')->get('name');
+  // $theme_path = drupal_get_path('theme', '<%= themeMachineName %>');
+
+  // $icons = array(
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'name' => 'application-name',
+  //       'content' => $site_name,
+  //     ),
+  //   ),
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'name' => 'msapplication-TileColor',
+  //       'content' => '',
+  //     ),
+  //   ),
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'name' => 'msapplication-TileImage',
+  //       'content' => $theme_path . '/build/images/app-icons/windows/ms-application-icon-144.png',
+  //     ),
+  //   ),
+  //   // iPad Pro (@2x) - 167
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'apple-touch-icon-precomposed',
+  //       'href' => $theme_path . '/build/images/app-icons/apple/apple-touch-icon-precomposed-167.png',
+  //       'sizes' => '167x167',
+  //     ),
+  //   ),
+  //   // iPad 2 & Mini (@1x) - 76
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'apple-touch-icon-precomposed',
+  //       'href' => $theme_path . '/build/images/app-icons/apple/apple-touch-icon-precomposed-76.png',
+  //       'sizes' => '76x76',
+  //     ),
+  //   ),
+  //   // iPad & mini (@2x) - 152
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'apple-touch-icon-precomposed',
+  //       'href' => $theme_path . '/build/images/app-icons/apple/apple-touch-icon-precomposed-152.png',
+  //       'sizes' => '152x152',
+  //     ),
+  //   ),
+  //   // iPhone 4s, 5, 6s (@2x) - 120
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'apple-touch-icon-precomposed',
+  //       'href' => $theme_path . '/build/images/app-icons/apple/apple-touch-icon-precomposed-120.png',
+  //       'sizes' => '120x120',
+  //     ),
+  //   ),
+  //   // <!-- iPhone 6s Plus, 6 (@3x) - 180 -->
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'apple-touch-icon-precomposed',
+  //       'href' => $theme_path . '/build/images/app-icons/apple/apple-touch-icon-precomposed-180.png',
+  //       'sizes' => '180x180',
+  //     ),
+  //   ),
+
+  //   // Chrome / Android
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'icon',
+  //       'href' => $theme_path . '/build/images/app-icons/android/android-icon-192.png',
+  //       'sizes' => '192x192',
+  //     ),
+  //   ),
+  //   // Chrome / Android
+  //   array(
+  //     '#type' => 'html_tag',
+  //     '#tag' => 'meta',
+  //     '#attributes' => array(
+  //       'rel' => 'icon',
+  //       'href' => $theme_path . '/build/images/app-icons/android/android-icon-128.png',
+  //       'sizes' => '128x128',
+  //     ),
+  //   ),
+  // );
+  // foreach ($icons as $key => $icon) {
+  //   $page['#attached']['html_head'][] = [$icon, 'icon-' . $key];
+  // }
+//}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function <%= themeMachineName %>_preprocess_node(&$variables) {
+  // Remove the "Add new comment" link on teasers or when the comment form is
+  // displayed on the page.
+  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
+    unset($variables['content']['links']['comment']['#links']['comment-add']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block.html.twig.
+ */
+function <%= themeMachineName %>_preprocess_block(&$variables) {
+  // Add a clearfix class to system branding blocks.
+  if ($variables['plugin_id'] == 'system_branding_block') {
+    $variables['attributes']['class'][] = 'clearfix';
+  }
+
+  // Add classes to blocks.
+  if (!empty($variables['attributes']['id'])) {
+    $variables['attributes']['class'][] = preg_replace('/^block-/', '', $variables['attributes']['id']);
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for menu.html.twig.
+ */
+function <%= themeMachineName %>_preprocess_menu(&$variables) {
+  $variables['attributes']['class'][] = 'clearfix';
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter() for form templates.
+ */
+//function <%= themeMachineName %>_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  // if ($variables['element']['#form_id'] == 'search_block_form') {
+  //   $suggestions[] = 'form__search_block_form';
+  // }
+//}
+
+/**
+ * Override or insert variables into the comment templates.
+ *
+ * @param $variables
+ *   An array of variables to pass to the theme template.
+ * @param $hook
+ *   The name of the template being rendered ("comment" in this case.)
+ */
+//function <%= themeMachineName %>_preprocess_comment(&$variables, $hook) {
+  // If comment subjects are disabled, don't display them.
+  // if (variable_get('comment_subject_field_' . $variables['node']->type, 1) == 0) {
+  //   $variables['title'] = '';
+  // }
+
+  // // Add pubdate to submitted variable.
+  // $variables['pubdate'] = '<time pubdate datetime="' . format_date($variables['comment']->created, 'custom', 'c') . '">' . $variables['created'] . '</time>';
+  // $variables['submitted'] = t('!username replied on !datetime', array('!username' => $variables['author'], '!datetime' => $variables['pubdate']));
+
+  // // Zebra striping.
+  // if ($variables['id'] == 1) {
+  //   $variables['classes_array'][] = 'first';
+  // }
+  // if ($variables['id'] == $variables['node']->comment_count) {
+  //   $variables['classes_array'][] = 'last';
+  // }
+  // $variables['classes_array'][] = $variables['zebra'];
+
+  // $variables['title_attributes_array']['class'][] = 'comment__title';
+//}
+
+
+/**
+ * Implements hook_form_alter().
+ */
+//function <%= themeMachineName %>_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+  // Duplicate the form ID as a class so we can reduce specificity in our CSS.
+  // $form['#attributes']['class'][] = drupal_clean_css_identifier($form['#id']);
+//}
+

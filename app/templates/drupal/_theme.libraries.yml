@@ -1,0 +1,95 @@
+# Related docs:
+# https://www.drupal.org/node/2216195
+
+<%= themeMachineName %>_global-css:
+  css:
+    theme:
+      build/css/styles.css: {}
+      # Example passing <link> attribute
+      # build/css/print.css: { media: print }
+
+<%= themeMachineName %>_global-js:
+  js:
+    # header: true # Uncomment to load in header
+    build/js/scripts.js: {}
+
+  dependencies:
+   #- core/drupal # Includes Drupal Behaviors!
+   - core/jquery
+   - core/jquery.once
+   #- <%= themeMachineName %>/html5shiv
+   #- <%= themeMachineName %>/modernizr
+   - <%= themeMachineName %>/mediaMatch
+   - <%= themeMachineName %>/enquire
+   #- <%= themeMachineName %>/respond
+   #- <%= themeMachineName %>/magnificPopup
+
+   # Other core js from core/assets/
+   # -backbone
+   # ckeditor
+   # classList
+   # domready
+   # farbtastic
+   # html5shiv
+   # jquery
+   # jquery-form
+   # jquery-joyride
+   # jquery-once
+   # jquery-ui-touch-punch
+   # jquery.cookie
+   # jquery.ui
+   # matchMedia
+   # modernizr
+   # normalize-css
+   # picturefill
+   # underscore
+
+
+# Installed via grunt so we can easily add remove tests ... gulp modernizr
+modernizr:
+  js:
+    vendor/modernizr/modernizr-custom.js: {}
+
+# Installed via bower. Add as dependency to other library or attach to page in preprocess function
+html5shiv:
+  js:
+    vendor/html5shiv/dist/html5shiv.min.js: {}
+
+enquire:
+  js:
+    vendor/enquire/dist/enquire.min.js: {}
+
+mediaMatch:
+  js:
+    vendor/media-match/media.match.min.js: {}
+
+respond:
+  js:
+    vendor/dest/respond.min.js: {}
+
+magnific-popup:
+  css:
+    theme:
+      vendor/magnific-popup/dist/magnific-popup.css: {}
+  js:
+    vendor/magnific-popup/dist/jquery.magnific-popup.min.js: {}
+
+
+# Example: "extend"
+# dialog:
+#   version: VERSION
+#   css:
+#     component:
+#       build/css/dialog.css: { weight: -10 }
+# file:
+#   version: VERSION
+#   css:
+#     component:
+#       build/css/file.css: { weight: -10 }
+
+
+
+# Example: Added in <%= themeMachineName %>.theme (preprocess function)
+# fancy-effect:
+#   js:
+#     build/js/fancy.js: {}

@@ -1,0 +1,13 @@
+# Example default settings
+# features:
+#    comment_user_picture: true
+#    comment_user_verification: true
+#    favicon: true
+#    logo: true
+#    name: true
+#    node_user_picture: true
+#    slogan: true
+
+# Provide custom settings for custom settings added to the theme settings form.
+# Note: You need to uninstall and reinstall to see it take effect.
+# my_custom_setting1: 'stringvalue'

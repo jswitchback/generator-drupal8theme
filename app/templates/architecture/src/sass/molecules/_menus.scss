@@ -1,0 +1,16 @@
+/* @partial _menus.scss */
+
+
+
+ul.menu {
+  li {
+  list-style-image: none;
+  list-style-type: none;
+    a {
+      -webkit-user-select: none; // Prevents text within from being selected.
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+}

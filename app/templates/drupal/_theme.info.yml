@@ -1,0 +1,92 @@
+name: <%= themeName %>
+description: <%= themeDesc %> (Sub theme of Classy)
+type: theme
+version: VERSION
+core: 8.x
+# Related docs:
+# https://www.drupal.org/node/2349827
+
+
+
+# base theme: stable // No classes on anything: menus, nodes, body, etc.
+base theme: classy
+#base theme: false #no base theme ...  If there is no "base theme" setting Drupal defaults to Stable.
+
+
+
+# Remove Drupal core styles.
+stylesheets-remove:
+  - core/assets/vendor/normalize-css/normalize.css
+  - core/modules/system/css/system.module.css
+  - core/modules/system/css/system.theme.css
+  - core/modules/views/css/views.module.css
+
+
+
+# Add styles from <%= themeName %>.libraries.yml
+libraries:
+  - <%= themeMachineName %>/<%= themeMachineName %>_global-css
+  - <%= themeMachineName %>/<%= themeMachineName %>_global-js
+
+
+# Add css to CKEditor iframe
+# https://api.drupal.org/api/drupal/core!modules!ckeditor!ckeditor.api.php/function/hook_ckeditor_css_alter/8.2.x
+#ckeditor_stylesheets:
+  #- build/css/wysiwyg.css
+
+
+# Example extend
+# Extend drupal.dialog: add assets from <%= themeName %>'s user libraries.
+# libraries-extend:
+#   core/drupal.dialog:
+#     - <%= themeName %>/dialog
+#   file/drupal.file:
+#     - <%= themeName %>/file
+
+
+
+# Example override
+# libraries-override:
+#   # Replace an entire library.
+#   core/drupal.collapse: mytheme/collapse
+
+#   # Replace an asset with another.
+#   THEMEORMODULEMACHINENAME/LIBRARYNAME:
+#     css:
+#       theme:
+#         css/layout.css: css/my-layout.css
+
+#   # Remove an asset.
+#   drupal/dialog:
+#     css:
+#       theme:
+#         dialog.theme.css: false
+#   core/jquery.ui:
+#     css:
+#       theme:
+#         assets/vendor/jquery.ui/themes/base/theme.css: false
+#   core/jquery.ui.dialog:
+#     css:
+#       component:
+#         assets/vendor/jquery.ui/themes/base/dialog.css: false
+
+#   # Remove an entire library.
+#   core/modernizr: false
+
+
+
+# Example core regions
+# regions:
+#   header: 'Header'
+#   primary_menu: "'Primary menu"
+#   secondary_menu: 'Secondary menu'
+#   highlighted: 'Highlighted'
+#   help: 'Help'
+#   content: 'Content'
+#   sidebar_first: 'Sidebar first'
+#   sidebar_second: 'Sidebar Second'
+#   footer: 'Footer'
+#   breadcrumb: 'Breadcrumb'
+# Example hidden region
+# regions_hidden:
+#   - REGION_NAME

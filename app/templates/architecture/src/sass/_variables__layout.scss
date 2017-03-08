@@ -1,0 +1,129 @@
+
+
+
+// =============================================================================
+// MEDIA QUERY VARIABLES
+// =============================================================================
+
+
+
+// Converts breakpoints to ems for better font scaling & accessibility.
+// Variable source: breakpoint
+@include breakpoint-set('to ems', true);
+
+
+// Set min and max width of the overall layout
+$viewport-min: 320px;
+$viewport-max: 1080px;
+
+// Standard dpi breakpoints
+$phone-max: max-width 479px;
+$phone-min: 480px;
+
+$tablet-small-max: max-width 599px;
+$tablet-small-min: 600px;
+
+$tablet-portrait-max: max-width 767px;
+$tablet-portrait-min: 768px;
+
+$desktop-small-max: max-width 839px;
+$desktop-small-min: 840px;
+
+$desktop-max: max-width 1079px;
+$desktop-min: 1080px;
+
+
+// Miscellanous breakpoints
+$tablet-landscape-min: 1024px;
+$tablet-landscape-max: max-width 1023px;
+$desktop-medium-min: 1280px;
+$desktop-medium-max: 1279px;
+$widescreen-max: max-width 1439px;
+$widescreen-min: 1440px;
+$orientation-landscape: "only screen and (orientation: landscape)";
+$orientation-portrait: "only screen and (orientation: portrait)";
+
+
+
+// =============================================================================
+// VERTICAL RHTHYM & GRID VARIABLES
+// =============================================================================
+
+
+
+// Universal vertical rhthym gutter. Determines baseline gutters
+// as well as block and form element margins,
+// p + p tags, hr tags, blockquote and pre tag padding
+$vert-gutter: $base-line-height * 1.5;
+$horiz-gutter: 20px;
+
+
+// Variable source: Singularity
+// 1.0 syntax
+// $grids: 24;
+// $gutters: $horiz-gutter;
+// $gutter-styles: 'split';
+
+// 1.2 syntax
+// How to use grid-span: https://github.com/Team-Sass/Singularity/wiki/Spanning-The-Grid
+@include add-grid(24);
+@include add-gutter($horiz-gutter);
+// For fixed gutters: @include sgs-change('gutter styles', 'fixed');
+@include add-gutter-style('split');
+@include sgs-change('output', 'isolation');
+
+
+
+
+// =============================================================================
+// SINGULARITY GRID REFERENCE --- https://github.com/Team-Sass/Singularity/wiki/Spanning-The-Grid
+// =============================================================================
+
+
+////////
+// OUTPUT STYLES:
+// https://github.com/Team-Sass/Singularity/wiki/Output-Styles
+// Isolation: floats with margin left and right forcing elements into columns.
+// Float: typical float without margins forcing elements into columns
+////////
+
+
+/////////
+// Overrides the global Grid context provided by $grids with a 12 column symmetric grid
+// .override-grid-symmetric {
+//   @include grid-span(1, 2, 12);
+// }
+
+// Overrides the global Grid context provided by $grids with a 2 4 5 asymmetric grid
+// .override-grid-asymmetric {
+//   @include grid-span(1, 2, (2 4 5));
+// }
+
+// Overrides the global Gutter context provided by $gutters with a .25 gutter
+// .override-gutter {
+//   @include grid-span(1, 2, $gutter: .25);
+// }
+
+// Overrides the global Output Style context provided by $output the Isolation output style
+// .override-output-style {
+//   @include grid-span(1, 2, $output-style: 'float');
+// }
+
+// Overrides the global Grid context provided by $grids with a 12 column symmetric grid, the global Gutter context by $gutters with a .25 gutter, and the global Output Style context provided by $output with the Isolation output style
+// .override-all-the-things {
+//   @include grid-span(1, 2, 12, .25, 'float');
+// }
+
+// // Simplifies use of $options for Isolation Output Style
+// @include grid-span(2, 3, $output-style: 'isolation', $options: 'both');
+/////////
+
+
+/////////
+// You can also include each output style explicitily in it's own mixin with different arguments
+
+// @include isolation-span(2, 3, 'right', (2 8 2 1), .25);
+// (span ? columns, starting column, clear, grid, gutter)
+// @include float-span(3, $grid: 5, $gutter: .25);
+// (span ? columns, grid, gutter)
+/////////

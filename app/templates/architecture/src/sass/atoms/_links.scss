@@ -1,0 +1,52 @@
+/* @partial _links.scss */
+
+/**
+ * 1. Remove the gray background color from active links in IE 10.
+ */
+a {
+  color: $link-color;
+  text-decoration: $link-text-decoration;
+  background-color: transparent; /* 1 */
+  transition-property: color;
+  transition-duration: $input-transition-duration;
+  transition-timing-function: ease-in;
+}
+
+// a:visited {
+//   color: $link-color-visited;
+//   text-decoration: none;
+// }
+
+a:hover {
+  color: $link-color-hover;
+  text-decoration: none; /* ie8 */
+}
+
+a:focus {
+  color: $link-color-focus;
+  text-decoration: none; /* ie8 */
+}
+
+a:active {
+  color: $link-color-active;
+  text-decoration: none;
+}
+
+/*
+ * Addresses outline displayed oddly in Chrome
+ */
+
+a:focus {
+  outline: thin dotted;
+}
+
+/*
+ * Improves readability when focused and also mouse hovered in all browsers
+ * people.opera.com/patrickl/experiments/keyboard/test
+ */
+
+a:hover,
+a:active {
+  outline: 0;
+}
+

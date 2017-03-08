@@ -1,0 +1,1 @@
+Individual svg files will be built into an SVG an fallback PNG sprite in the "build/images/sprites" folder. Feel free to remove these default files and run "grunt build.sprites" on your own vector images.

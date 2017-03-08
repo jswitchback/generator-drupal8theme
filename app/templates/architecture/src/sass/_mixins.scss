@@ -124,7 +124,7 @@
 
 
 
-// Add outlines around elements to fix shotty layout.
+// Adds outlines around elements to fix shotty layout.
 @mixin debug-layout {
   * { outline: 2px dotted red }
   * * { outline: 2px dotted green }

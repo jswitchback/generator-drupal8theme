@@ -57,15 +57,11 @@ MIT
 Clone the repository, change directory and install the generators dependencies with the following command:
 
 ```bash
-git clone https://github.com/jswitchback/generator-rapid.git && cd generator-rapid && npm link && npm install
+git clone https://github.com/jswitchback/generator-drupal8theme.git && cd generator-drupal8theme && npm link && npm install
 ```
-
-### Generating a theme or module
-
-Generate a new theme or module from templates in any directory:
+Generate a new theme from templates in any directory:
 
 ```bash
-yo rapid
-yo rapid:module
+yo drupal8theme
 ```
 

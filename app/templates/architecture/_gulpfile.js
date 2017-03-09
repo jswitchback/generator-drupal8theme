@@ -73,7 +73,9 @@ var CONFIG = {
     ],
     'tests' : [
       'svg',
-      'touchevents',
+      'details', // Require by Drupal Core js
+      'inputtypes', // Required by Drupal Core js
+      'touchevents', // Required by Drupal Core js
       'cssanimations',
       'flexbox'
     ],
@@ -183,7 +185,7 @@ gulp.task('modernizr', function() {
   gulp.src(CONFIG.js.Dest + '/*.js')
     .pipe(modernizr(CONFIG.modernizrOptions))
     .pipe(uglify())
-    .pipe(gulp.dest(CONFIG.js.Dest));
+    .pipe(gulp.dest('vendor/modernizr'));
 });
 
 // Copy files

@@ -36,19 +36,28 @@ libraries:
 
 
 # Example extend
-# Extend drupal.dialog: add assets from <%= themeName %>'s user libraries.
+# Extend drupal.dialog: add assets from <%= themeMachineName %>'s user libraries.
 # libraries-extend:
 #   core/drupal.dialog:
-#     - <%= themeName %>/dialog
+#     - <%= themeMachineName %>/dialog
 #   file/drupal.file:
-#     - <%= themeName %>/file
+#     - <%= themeMachineName %>/file
 
 
 
 # Example override
-# libraries-override:
+libraries-override:
+#   # Remove an entire library.
+#   core/modernizr: false
+
+
+# Installed via gulp so we can easily add/remove tests ... gulp modernizr or rdg restart theme should download it
+  core/modernizr:
+    js:
+      assets/vendor/modernizr/modernizr.min.js: vendor/modernizr/modernizr.js
+
 #   # Replace an entire library.
-#   core/drupal.collapse: mytheme/collapse
+#   core/drupal.collapse: <%= themeMachineName %>/collapse
 
 #   # Replace an asset with another.
 #   THEMEORMODULEMACHINENAME/LIBRARYNAME:
@@ -70,8 +79,6 @@ libraries:
 #       component:
 #         assets/vendor/jquery.ui/themes/base/dialog.css: false
 
-#   # Remove an entire library.
-#   core/modernizr: false
 
 
 

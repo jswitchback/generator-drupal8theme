@@ -19,7 +19,6 @@
    - core/jquery
    - core/jquery.once
    #- <%= themeMachineName %>/html5shiv
-   #- <%= themeMachineName %>/modernizr
    - <%= themeMachineName %>/mediaMatch
    - <%= themeMachineName %>/enquire
    #- <%= themeMachineName %>/respond
@@ -45,11 +44,6 @@
    # picturefill
    # underscore
 
-
-# Installed via grunt so we can easily add remove tests ... gulp modernizr
-modernizr:
-  js:
-    vendor/modernizr/modernizr-custom.js: {}
 
 # Installed via bower. Add as dependency to other library or attach to page in preprocess function
 html5shiv:
@@ -87,7 +81,6 @@ magnific-popup:
 #   css:
 #     component:
 #       build/css/file.css: { weight: -10 }
-
 
 
 # Example: Added in <%= themeMachineName %>.theme (preprocess function)

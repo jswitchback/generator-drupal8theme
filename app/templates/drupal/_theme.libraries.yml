@@ -9,8 +9,8 @@
       # build/css/print.css: { media: print }
 
 <%= themeMachineName %>_global-js:
+  # header: true # Uncomment to load in header
   js:
-    # header: true # Uncomment to load in header
     build/js/scripts.js: {}
     build/js/responsive.js: {}
 

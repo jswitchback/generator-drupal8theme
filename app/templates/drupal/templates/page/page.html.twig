@@ -49,10 +49,12 @@
   <header role="banner" class="header">
     <div class="layout-content">
       {{ page.header }}
-      <a href="#" class="toggle-nav icon-info-circle">Toggle Nav</a>
+      <a href="#navigation" class="toggle-nav icon-info-circle">Toggle Nav</a>
 
-      {{ page.primary_menu }}
-      {{ page.secondary_menu }}
+      <div id="navigation" class="navigation">
+        {{ page.primary_menu }}
+        {{ page.secondary_menu }}
+      </div>
     </div>
   </header>
 

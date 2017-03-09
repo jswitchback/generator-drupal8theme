@@ -1,14 +1,15 @@
-var gulp         = require("gulp"),
-    sass         = require("gulp-sass"),
-    sourcemaps   = require('gulp-sourcemaps'),
-    jshint       = require('gulp-jshint'),
-    uglify       = require('gulp-uglify'),
-    autoprefixer = require('gulp-autoprefixer'),
-    changed      = require('gulp-changed'),
-    imagemin     = require('gulp-imagemin'),
-    modernizr    = require('gulp-modernizr'),
-    livereload   = require('gulp-livereload');
-
+var gulp             = require("gulp"),
+    sass             = require("gulp-sass"),
+    sourcemaps       = require('gulp-sourcemaps'),
+    stripCssComments = require('gulp-strip-css-comments'),
+    jshint           = require('gulp-jshint'),
+    uglify           = require('gulp-uglify'),
+    autoprefixer     = require('gulp-autoprefixer'),
+    changed          = require('gulp-changed'),
+    imagemin         = require('gulp-imagemin'),
+    modernizr        = require('gulp-modernizr'),
+    // browserSync      = require('browser-sync').create(), // Not working with Docker. If needed npm i browser-sync --save-dev
+    livereload       = require('gulp-livereload');
 
 
 
@@ -22,7 +23,7 @@ var CONFIG = {
     browsers: ['last 2 versions', '> 5%', 'not ie <= 8']
   },
 
-  'url': 'burchfabrics.dkr',
+  'url': '<%= themeMachineName %>.dkr',
 
   'sassOptions': {
     'dev': {
@@ -103,6 +104,7 @@ gulp.task('css', function () {
         .pipe(sourcemaps.init())
         .pipe(sass(CONFIG.sassOptions.prod).on('error', sass.logError))
         .pipe(autoprefixer(CONFIG.autoprefixerOptions))
+        .pipe(stripCssComments({preserve: false}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(CONFIG.css.Dest))
         .pipe(livereload());
@@ -191,6 +193,32 @@ gulp.task('modernizr', function() {
 // });
 
 
+// BrowserSync
+// gulp.task('browser-sync', function() {
+//     //watch files
+//     var files = [
+//       CONFIG.css.Dest + '/*.css',
+//       CONFIG.js.Dest + '/*.js',
+//       CONFIG.images.Dest + '/**/*'
+//     ];
+
+//     //initialize browsersync
+//     browserSync.init(files, {
+//       //browsersync with a php server
+//       proxy: CONFIG.url,
+//       // host: CONFIG.url,
+//       // port: 3000,
+//       // open: false,
+//       notify: true
+//     });
+// });
+
+// Browser-sync reload
+// gulp.task('bs-reload', function () {
+//     browserSync.reload();
+// });
+
+
 /////////////////////////////
 // COMBINED TASKS
 /////////////////////////////
@@ -204,17 +232,23 @@ gulp.task('default', ['css', 'js', 'images'], function () {
 
 });
 
-gulp.task('sync', ['css', 'js', 'images'], function () {
-    gulp.watch(CONFIG.css.Src, ['css']);
-    gulp.watch(CONFIG.js.Src, ['js']);
-    gulp.watch(CONFIG.images.Src, ['images']);
-});
+// gulp.task('sync', ['css', 'js', 'images', 'browser-sync'], function () {
+//     gulp.watch(CONFIG.css.Src, ['css']);
+//     gulp.watch(CONFIG.js.Src, ['js']);
+//     gulp.watch(CONFIG.images.Src, ['images']);
+//     gulp.watch([CONFIG.js.Dest + '*.js'], ['bs-reload']);
+//     gulp.watch([CONFIG.images.Dest + '/**/*'], ['bs-reload']);
+// });
 
 gulp.task('watch', ['css', 'js', 'images'], function () {
     livereload.listen();
     gulp.watch(CONFIG.css.Src, ['css']);
     gulp.watch(CONFIG.js.Src, ['js']);
     gulp.watch(CONFIG.images.Src, ['images']);
+    gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
+      console.log('Not working without this console log...wtf');
+      livereload.changed(files);
+    });
 });
 
 gulp.task('watch.dev', ['css.dev', 'js'], function () {
@@ -222,6 +256,10 @@ gulp.task('watch.dev', ['css.dev', 'js'], function () {
     gulp.watch(CONFIG.css.Src, ['css']);
     gulp.watch(CONFIG.js.Src, ['js']);
     gulp.watch(CONFIG.images.Src, ['images']);
+    gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
+      console.log('Not working without this console log...wtf');
+      livereload.changed(files);
+    });
 });
 
 gulp.task('watch.sass', ['css'], function () {

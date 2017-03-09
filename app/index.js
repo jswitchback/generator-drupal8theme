@@ -93,7 +93,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
       this.src.copy('architecture/jshintrc', '.jshintrc');
       this.src.copy('architecture/bower.json', 'bower.json');
       this.src.copy('architecture/bowerrc', '.bowerrc');
-      this.src.copy('architecture/gulpfile.js', 'gulpfile.js');
+      this.template('architecture/_gulpfile.js', 'gulpfile.js', this.promptinput);
       this.template('architecture/_package.json', 'package.json', this.promptinput);
 
     },

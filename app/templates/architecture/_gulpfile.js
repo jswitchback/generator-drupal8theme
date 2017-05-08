@@ -29,19 +29,13 @@ var CONFIG = {
     'dev': {
       errLogToConsole: true,
       outputStyle: 'expanded',
-      precision: 10,
-      onError: function (err) {
-          notify().write(err);
-      }
+      precision: 10
     },
     'prod': {
       errLogToConsole: true,
       outputStyle: 'expanded',
       // outputStyle: 'compressed',
-      precision: 10,
-      onError: function (err) {
-          notify().write(err);
-      }
+      precision: 10
     }
   },
 

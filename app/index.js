@@ -16,7 +16,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the impressive Drupal8theme generator!'
+      'Welcome to the Drupal8theme generator!'
     ));
 
     var prompts = [

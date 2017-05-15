@@ -66,13 +66,15 @@ yo drupal8theme
 ```
 
 ------------------------------------------------
-### UPDATING
+### HELPER COMMANDS
 ------------------------------------------------
 
 
 Update local machine with latest code
 ```bash
 npm update -g generator-drupal8theme
+or
+npm uninstall -g generator-drupal8theme && npm install -g generator-drupal8theme
 ```
 
 ### Miscellanous

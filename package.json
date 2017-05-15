@@ -1,6 +1,6 @@
 {
   "name": "generator-drupal8theme",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",
@@ -8,7 +8,7 @@
   "author": {
     "name": "Joe",
     "email": "joe@jitnie.com",
-    "url": "https://github.com/jswitchback"
+    "url": "https://github.com/jswitchback/generator-drupal8theme"
   },
   "engines": {
     "node": ">=0.10.0"

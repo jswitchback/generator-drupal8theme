@@ -29,7 +29,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeName',
       message: 'Name your theme:',
-      default: 'Test',
+      default: 'Project title here',
       validate: function (input) {
         if (input === '') {
           return 'Please enter your theme\'s name';
@@ -40,8 +40,9 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeMachineName',
       message: 'What\'s the machine name of your theme:',
-      default: 'test',
+      default: 'project_name_here',
       validate: function (input) {
+        // @todo error on capital letters and spaces
         if (input === '') {
           return 'Please enter your theme\'s name';
         }
@@ -51,7 +52,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeDesc',
       message: 'Describe your theme:',
-      default: 'test description',
+      default: 'Projedct description here.',
       validate: function (input) {
         if (input === '') {
           return 'Please enter your theme\'s description';

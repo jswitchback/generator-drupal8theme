@@ -29,7 +29,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeName',
       message: 'Name your theme:',
-      default: 'TEST Project title',
+      default: 'Project title',
       validate: function (input) {
         if (input === '') {
           return 'Please enter your theme\'s name';

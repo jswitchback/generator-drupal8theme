@@ -2,6 +2,7 @@
 var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
+var chalk = require('chalk');
 var yosay = require('yosay');
 
 
@@ -28,7 +29,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeName',
       message: 'Name your theme:',
-      default: 'Project title here',
+      default: 'Project title',
       validate: function (input) {
         if (input === '') {
           return 'Please enter your theme\'s name';
@@ -39,7 +40,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeMachineName',
       message: 'What\'s the machine name of your theme:',
-      default: 'project_name_here',
+      default: 'project_name',
       validate: function (input) {
         // @todo error on capital letters and spaces
         if (input === '') {
@@ -51,7 +52,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
     {
       name: 'themeDesc',
       message: 'Describe your theme:',
-      default: 'Projedct description here.',
+      default: 'Project description here.',
       validate: function (input) {
         if (input === '') {
           return 'Please enter your theme\'s description';

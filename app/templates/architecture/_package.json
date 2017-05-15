@@ -13,6 +13,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-modernizr": "^1.0.0-alpha",
     "gulp-sass": "^2.3.2",
+    "gulp-strip-css-comments": "^1.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^2.0.0",
     "jshint": "^2.9.3"

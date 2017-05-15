@@ -65,3 +65,33 @@ Generate a new theme from templates in any directory:
 yo drupal8theme
 ```
 
+------------------------------------------------
+### UPDATING
+------------------------------------------------
+
+
+Update local machine with latest code
+```bash
+npm update -g generator-drupal8theme
+```
+
+### Miscellanous
+
+Check latest version of package on NPM Registry
+
+```bash
+npm -v drupal8theme
+```
+
+Check version on your local machine
+
+```bash
+npm list -g generator-drupal8theme
+```
+
+Patching and publishing after updating github repo
+```bash
+ npm version patch/major/minor
+ npm publish
+```
+

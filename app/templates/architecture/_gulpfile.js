@@ -242,7 +242,6 @@ gulp.task('watch', ['css', 'js', 'images'], function () {
     gulp.watch(CONFIG.js.Src, ['js']);
     gulp.watch(CONFIG.images.Src, ['images']);
     gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
-      console.log('Not working without this console log...wtf');
       livereload.changed(files);
     });
 });
@@ -253,7 +252,6 @@ gulp.task('watch.dev', ['css.dev', 'js'], function () {
     gulp.watch(CONFIG.js.Src, ['js']);
     gulp.watch(CONFIG.images.Src, ['images']);
     gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
-      console.log('Not working without this console log...wtf');
       livereload.changed(files);
     });
 });

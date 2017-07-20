@@ -222,9 +222,9 @@ gulp.task('modernizr', function() {
 
 // Default task to be run with `gulp`
 gulp.task('default', ['css', 'js', 'images'], function () {
-    gulp.watch(CONFIG.css.Src + '/**/*.scss', ['css']);
-    gulp.watch(CONFIG.js.Src + '/*.js', ['js']);
-    gulp.watch(CONFIG.images.Src + '/**/*', ['images']);
+    gulp.watch(CONFIG.css.Src, ['css']);
+    gulp.watch(CONFIG.js.Src, ['js']);
+    gulp.watch(CONFIG.images.Src, ['images']);
 
 });
 
@@ -238,9 +238,9 @@ gulp.task('default', ['css', 'js', 'images'], function () {
 
 gulp.task('watch', ['css', 'js', 'images'], function () {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src + '/**/*.scss', ['css']);
-    gulp.watch(CONFIG.js.Src + '/*.js', ['js']);
-    gulp.watch(CONFIG.images.Src + '/**/*', ['images']);
+    gulp.watch(CONFIG.css.Src, ['css']);
+    gulp.watch(CONFIG.js.Src, ['js']);
+    gulp.watch(CONFIG.images.Src, ['images']);
     gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
       livereload.changed(files);
     });
@@ -248,9 +248,9 @@ gulp.task('watch', ['css', 'js', 'images'], function () {
 
 gulp.task('watch.dev', ['css.dev', 'js'], function () {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src + '/**/*.scss', ['css']);
-    gulp.watch(CONFIG.js.Src + '/*.js', ['js']);
-    gulp.watch(CONFIG.images.Src + '/**/*', ['images']);
+    gulp.watch(CONFIG.css.Src, ['css']);
+    gulp.watch(CONFIG.js.Src, ['js']);
+    gulp.watch(CONFIG.images.Src, ['images']);
     gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
       livereload.changed(files);
     });
@@ -258,7 +258,7 @@ gulp.task('watch.dev', ['css.dev', 'js'], function () {
 
 gulp.task('watch.sass', ['css'], function () {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src + '/**/*.scss', ['css']);
+    gulp.watch(CONFIG.css.Src, ['css']);
 });
 
 gulp.task('init', ['css.dev', 'js', 'images', 'modernizr']);

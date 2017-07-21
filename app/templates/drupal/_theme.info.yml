@@ -8,9 +8,9 @@ core: 8.x
 
 
 
-# base theme: stable // No classes on anything: menus, nodes, body, etc.
 base theme: classy
-#base theme: false #no base theme ...  If there is no "base theme" setting Drupal defaults to Stable.
+#base theme: stable # No classes on anything: menus, nodes, body, etc.
+#base theme: false  # No base theme ...  If there is no "base theme" set Drupal defaults to Stable.
 
 
 
@@ -51,7 +51,7 @@ libraries-override:
 #   core/modernizr: false
 
 
-# Installed via gulp so we can easily add/remove tests ... gulp modernizr or rdg restart theme should download it
+# Installed via gulp so we can easily add/remove tests ... gulp modernizr (dkr exec theme 'gulp modernizr') should download it (see gulpfile.js for possible tasks)
   core/modernizr:
     js:
       assets/vendor/modernizr/modernizr.min.js: vendor/modernizr/modernizr.js

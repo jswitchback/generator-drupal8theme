@@ -2,53 +2,65 @@
 
 
 /* System status report. */
+
+
+// Defaults
+.messages {
+  margin: $vert-gutter 0;
+  background-color: $success-background;
+  border: 1px solid $success-border;
+  color: $success-text;
+  box-shadow: -8px 0 0 $success-border;
+}
+.messages__list {
+  margin: 0;
+}
+.messages__item {
+  list-style-image: none;
+}
+/* Core/module installation error messages. */
+.messages--error  p.error {
+  color: #333;
+}
+.messages + .messages {
+  margin-top: $vert-gutter;
+}
+// End defaults
+
+
+// Helpers and silent classes
 .ok,
 %ok {
+  border-color: $success-border;
   background-color: $success-background;
   color: $success-text;
 }
 .warning,
 %warning {
+  border-color: $warning-border;
   background-color: $warning-background;
   color: $warning-text;
 }
 .error,
 %error {
+  border-color: $error-border;
   background-color: $error-background;
   color:  $error-text;
 }
+// End helpers...
 
 
-// Not sure classesare the same.
-.messages {
-  margin: $vert-gutter 0;
-  border: 1px solid $success-border;
-}
 
-.messages__status {
-  @extend .messages;
+// Messages
+.messages--status {
   @extend %ok;
+  box-shadow: -8px 0 0 $success-border;
 }
-.messages__warning {
-  @extend .messages;
+.messages--warning {
   @extend %warning;
-  border-color: $warning-border;
-
+  box-shadow: -8px 0 0 $warning-border;
 }
-.messages__error {
-  @extend .messages;
+.messages--error {
   @extend %error;
-  border-color: $error-background;
-
-}
-.messages--list {
-  margin: 0;
-}
-.messages--item {
-  list-style-image: none;
-}
-
-/* Core/module installation error messages. */
-.messages__error  p.error {
-  color: #333;
+  box-shadow: -8px 0 0 $error-border;
 }

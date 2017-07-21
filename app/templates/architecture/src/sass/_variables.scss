@@ -187,14 +187,14 @@ $horizontal-rule-border: $ui-border-color;
 
 
 // MESSAGES
-$success-background: $green;
-$success-border: darken($success-background, 25%);
+$success-border: $green;
+$success-background: lighten($success-border, 45%);
 $success-text: $success-border;
-$warning-background: $yellow;
-$warning-border: darken($warning-background, 25%);
+$warning-border: $yellow;
+$warning-background: lighten($warning-border, 45%);
 $warning-text: $warning-border;
-$error-background: $red;
-$error-border: darken($error-background, 25%);
+$error-border: $red;
+$error-background: lighten($error-border, 45%);
 $error-text: $error-border;
 
 

@@ -202,7 +202,7 @@ gulp.task('modernizr', function() {
 //     browserSync.init(files, {
 //       //browsersync with a php server
 //       proxy: CONFIG.url,
-//       // host: CONFIG.url,
+//       browser: ["google chrome"], // ["firefox", "safari"]
 //       // port: 3000,
 //       // open: false,
 //       notify: true

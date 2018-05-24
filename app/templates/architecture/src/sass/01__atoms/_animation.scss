@@ -1,5 +1,14 @@
 /* @partial _animation.scss */
 
+
+// Remove all animation for people with vestibular disorders (vertigo, dizziness, motion sickness)
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
 // SILENT CLASSES
 // Examples use: @extend %animated;
 %animated {

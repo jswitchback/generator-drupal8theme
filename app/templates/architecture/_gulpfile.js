@@ -1,4 +1,5 @@
 var gulp             = require("gulp"),
+    watch            = require('gulp-watch'), // More performant for Gulp 3. Replace with Gulp core watch method until Gulp 4.0 is officially released (it's stable but the docs aren't done... 9/1/2018)
     sass             = require("gulp-sass"),
     sourcemaps       = require('gulp-sourcemaps'),
     stripCssComments = require('gulp-strip-css-comments'),
@@ -8,7 +9,6 @@ var gulp             = require("gulp"),
     changed          = require('gulp-changed'),
     imagemin         = require('gulp-imagemin'),
     modernizr        = require('gulp-modernizr'),
-    // browserSync      = require('browser-sync').create(), // Not working with Docker. If needed npm i browser-sync --save-dev
     livereload       = require('gulp-livereload');
 
 
@@ -22,8 +22,6 @@ var CONFIG = {
   'autoprefixerOptions': {
     browsers: ['last 2 versions', '> 5%', 'not ie <= 8']
   },
-
-  'url': '<%= themeMachineName %>.dkr',
 
   'sassOptions': {
     'dev': {
@@ -189,76 +187,52 @@ gulp.task('modernizr', function() {
 // });
 
 
-// BrowserSync
-// gulp.task('browser-sync', function() {
-//     //watch files
-//     var files = [
-//       CONFIG.css.Dest + '/*.css',
-//       CONFIG.js.Dest + '/*.js',
-//       CONFIG.images.Dest + '/**/*'
-//     ];
-
-//     //initialize browsersync
-//     browserSync.init(files, {
-//       //browsersync with a php server
-//       proxy: CONFIG.url,
-//       browser: ["google chrome"], // ["firefox", "safari"]
-//       // port: 3000,
-//       // open: false,
-//       notify: true
-//     });
-// });
-
-// Browser-sync reload
-// gulp.task('bs-reload', function () {
-//     browserSync.reload();
-// });
-
-
 /////////////////////////////
 // COMBINED TASKS
 /////////////////////////////
 
 
 // Default task to be run with `gulp`
-gulp.task('default', ['css', 'js', 'images'], function () {
-    gulp.watch(CONFIG.css.Src, ['css']);
-    gulp.watch(CONFIG.js.Src, ['js']);
-    gulp.watch(CONFIG.images.Src, ['images']);
-
-});
-
-// gulp.task('sync', ['css', 'js', 'images', 'browser-sync'], function () {
-//     gulp.watch(CONFIG.css.Src, ['css']);
-//     gulp.watch(CONFIG.js.Src, ['js']);
-//     gulp.watch(CONFIG.images.Src, ['images']);
-//     gulp.watch([CONFIG.js.Dest + '*.js'], ['bs-reload']);
-//     gulp.watch([CONFIG.images.Dest + '/**/*'], ['bs-reload']);
-// });
+gulp.task('default', ['css', 'js', 'images']);
 
 gulp.task('watch', ['css', 'js', 'images'], function () {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src, ['css']);
-    gulp.watch(CONFIG.js.Src, ['js']);
-    gulp.watch(CONFIG.images.Src, ['images']);
-    gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
+
+    watch(CONFIG.css.Src, function(){
+        gulp.start('css');
+    });
+
+    watch(CONFIG.js.Src, function(){
+        gulp.start('js');
+    });
+
+    watch(CONFIG.images.Src, function(){
+        gulp.start('images');
+    });
+  
+    watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
       livereload.changed(files);
     });
 });
 
 gulp.task('watch.dev', ['css.dev', 'js'], function () {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src, ['css']);
-    gulp.watch(CONFIG.js.Src, ['js']);
-    gulp.watch(CONFIG.images.Src, ['images']);
-    gulp.watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
+
+    watch(CONFIG.css.Src, function(){
+        gulp.start('css.dev');
+    });
+
+    watch(CONFIG.js.Src, function(){
+        gulp.start('js');
+    });
+
+    watch(CONFIG.images.Src, function(){
+        gulp.start('images');
+    });
+
+    watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
       livereload.changed(files);
     });
 });
 
-gulp.task('watch.sass', ['css'], function () {
-    livereload.listen();
-    gulp.watch(CONFIG.css.Src, ['css']);
-});
-
-gulp.task('init', ['css.dev', 'js', 'images', 'modernizr']);
+gulp.task('init', ['css', 'js', 'images', 'modernizr']);

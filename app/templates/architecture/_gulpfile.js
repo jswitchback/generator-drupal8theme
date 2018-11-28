@@ -68,6 +68,10 @@ var CONFIG = {
       'details', // Require by Drupal Core js
       'inputtypes', // Required by Drupal Core js
       'touchevents', // Required by Drupal Core js
+      'addtest', // Required by Drupal Core js
+      'prefixes', // Required by Drupal Core js
+      'setclasses', // Required by Drupal Core js
+      'teststyles', // Required by Drupal Core js
       'cssanimations',
       'flexbox'
     ],

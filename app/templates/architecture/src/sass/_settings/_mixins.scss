@@ -47,7 +47,7 @@
     text-decoration: none;
     color: lighten($btn-color, 60%);
     background-color: darken($btn-color, 10%);
-    @include background-image(linear-gradient(center top, darken($btn-color, 10%), $btn-color));
+    background-image: linear-gradient(center top, darken($btn-color, 10%), $btn-color);
   }
   &:active, &:focus {
     text-decoration: none;
@@ -108,12 +108,6 @@
   text-transform: uppercase;
   text-align: center;
   word-wrap: break-word; // A very nice CSS3 property
-
-  @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
-    .lt-ie8 &>* {
-      position: relative; // Otherwise these elements will appear below the "Unpublished" text.
-    }
-  }
 }
 
 

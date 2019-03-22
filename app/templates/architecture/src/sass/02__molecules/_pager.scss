@@ -14,7 +14,7 @@
   text-transform: uppercase;
   padding: 4px 8px;
   float: left;
-  @include transition(padding .15s ease-in);
+  transition: padding .15s ease-in;
 }
 
 .pager__item,      /* A list item containing a page number in the list of pages. */

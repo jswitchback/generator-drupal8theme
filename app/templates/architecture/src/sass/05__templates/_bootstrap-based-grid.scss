@@ -125,7 +125,7 @@
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  @include box-sizing(border-box);
+  box-sizing: border-box;
 }
 
 .col-xs-1,

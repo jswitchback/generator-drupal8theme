@@ -105,7 +105,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
       this.template('drupal/_theme.info.yml', themeMachineName + '.info.yml', this.promptinput);
       this.template('drupal/_theme.libraries.yml', themeMachineName + '.libraries.yml', this.promptinput);
       this.template('drupal/_theme.breakpoints.yml', themeMachineName + '.breakpoints.yml', this.promptinput);
-      this.template('drupal/_theme.settings.yml', 'config/install/' + themeMachineName + '.settings.yml', this.promptinput);
+      // this.template('drupal/_theme.settings.yml', 'config/install/' + themeMachineName + '.settings.yml', this.promptinput); // Will error install if there are no settings as of Drupal 8.1
       this.template('drupal/_theme.theme', themeMachineName + '.theme', this.promptinput);
       this.template('drupal/_scripts.js', 'src/js/scripts.js', this.promptinput);
       this.template('drupal/_README.txt', 'README.txt', this.promptinput);

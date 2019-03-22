@@ -1,35 +1,31 @@
-var gulp             = require("gulp"),
-    watch            = require('gulp-watch'), // More performant for Gulp 3. Replace with Gulp core watch method until Gulp 4.0 is officially released (it's stable but the docs aren't done... 9/1/2018)
-    sass             = require("gulp-sass"),
-    sourcemaps       = require('gulp-sourcemaps'),
-    stripCssComments = require('gulp-strip-css-comments'),
-    jshint           = require('gulp-jshint'),
-    uglify           = require('gulp-uglify'),
-    autoprefixer     = require('gulp-autoprefixer'),
-    changed          = require('gulp-changed'),
-    imagemin         = require('gulp-imagemin'),
-    modernizr        = require('gulp-modernizr'),
-    livereload       = require('gulp-livereload');
-
-
+var gulp = require('gulp'),
+  sass = require('gulp-sass'),
+  sourcemaps = require('gulp-sourcemaps'),
+  stripCssComments = require('gulp-strip-css-comments'),
+  jshint = require('gulp-jshint'),
+  uglify = require('gulp-uglify'),
+  autoprefixer = require('gulp-autoprefixer'),
+  changed = require('gulp-changed'),
+  imagemin = require('gulp-imagemin'),
+  modernizr = require('gulp-modernizr'),
+  livereload = require('gulp-livereload');
 
 /////////////////////////////
 // CONFIG
 /////////////////////////////
 
-
 var CONFIG = {
-  'autoprefixerOptions': {
+  autoprefixerOptions: {
     browsers: ['last 2 versions', '> 5%', 'not ie <= 8']
   },
 
-  'sassOptions': {
-    'dev': {
+  sassOptions: {
+    dev: {
       errLogToConsole: true,
       outputStyle: 'expanded',
       precision: 10
     },
-    'prod': {
+    prod: {
       errLogToConsole: true,
       outputStyle: 'expanded',
       // outputStyle: 'compressed',
@@ -37,33 +33,31 @@ var CONFIG = {
     }
   },
 
-  'jsOptions': {
+  jsOptions: {
     mangle: false // Prevent Uglify from changing variable names
     // preserveComments: 'all'
   },
 
-  'css': {
-    'Src': 'src/sass/**/*.scss',
-    'Dest': 'build/css'
+  css: {
+    Src: 'src/sass/**/*.scss',
+    Dest: 'build/css'
   },
 
-  'js': {
-    'Src': 'src/js/**/*.js',
-    'Dest': 'build/js'
+  js: {
+    Src: 'src/js/**/*.js',
+    Dest: 'build/js'
   },
 
-  'images': {
-    'Src': 'src/images/**/*',
-    'Dest': 'build/images'
+  images: {
+    Src: 'src/images/**/*',
+    Dest: 'build/images'
   },
 
-  'modernizrOptions': {
-    'crawl': false,
-    'cache': true,
-    'options': [
-        'setClasses'
-    ],
-    'tests' : [
+  modernizrOptions: {
+    crawl: false,
+    cache: true,
+    options: ['setClasses'],
+    tests: [
       'svg',
       'details', // Require by Drupal Core js
       'inputtypes', // Required by Drupal Core js
@@ -72,10 +66,9 @@ var CONFIG = {
       'prefixes', // Required by Drupal Core js
       'setclasses', // Required by Drupal Core js
       'teststyles', // Required by Drupal Core js
-      'cssanimations',
       'flexbox'
     ],
-    'dest' : false
+    dest: false
     // "excludeTests": [],
     // "customTests" : []
     // "devFile" : false,
@@ -88,41 +81,47 @@ var CONFIG = {
     //     ]
     // },
   }
-
 };
-
 
 /////////////////////////////
 // CSS
 /////////////////////////////
 
+const css = () =>
+  gulp
+    .src(CONFIG.css.Src)
+    .pipe(sourcemaps.init())
+    .pipe(sass(CONFIG.sassOptions.prod).on('error', sass.logError))
+    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
+    .pipe(stripCssComments({ preserve: false }))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(CONFIG.css.Dest))
+    .pipe(livereload());
 
-gulp.task('css', function () {
-    gulp.src(CONFIG.css.Src)
-        .pipe(sourcemaps.init())
-        .pipe(sass(CONFIG.sassOptions.prod).on('error', sass.logError))
-        .pipe(autoprefixer(CONFIG.autoprefixerOptions))
-        .pipe(stripCssComments({preserve: false}))
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(CONFIG.css.Dest))
-        .pipe(livereload());
-});
+gulp.task('css', css);
 
-gulp.task('css.dev', function () {
-    gulp.src(CONFIG.css.Src)
-        .pipe(sass(CONFIG.sassOptions.dev).on('error', sass.logError))
-        .pipe(autoprefixer(CONFIG.autoprefixerOptions))
-        .pipe(gulp.dest(CONFIG.css.Dest))
-        .pipe(livereload());
-});
+const cssDev = () =>
+  gulp
+    .src(CONFIG.css.Src)
+    .pipe(sass(CONFIG.sassOptions.dev).on('error', sass.logError))
+    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
+    .pipe(gulp.dest(CONFIG.css.Dest))
+    .pipe(livereload());
 
+gulp.task('css.dev', cssDev);
 
+const cssProd = () =>
+  gulp
+    .src(CONFIG.css.Src)
+    .pipe(sass(CONFIG.sassOptions.dev).on('error', sass.logError))
+    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
+    .pipe(gulp.dest(CONFIG.css.Dest));
+
+gulp.task('css.prod', cssProd);
 
 /////////////////////////////
 // JS
 /////////////////////////////
-
-
 
 // gulp.task('minify', function () {
 //    gulp.src(CONFIG.js.Src)
@@ -132,57 +131,53 @@ gulp.task('css.dev', function () {
 //       .pipe(gulp.dest(CONFIG.js.Dest));
 // });
 
-gulp.task('js', function () {
-    gulp.src(CONFIG.js.Src)
-      .pipe(jshint())
-      .pipe(jshint.reporter('default'))
-      .pipe(uglify(CONFIG.jsOptions).on('error', function(e){
-          var message = 'Javascript minification (gulp-uglify) has failed. Likely due to javascript errors listed above.';
+const js = () =>
+  gulp
+    .src(CONFIG.js.Src)
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'))
+    .pipe(
+      uglify(CONFIG.jsOptions).on('error', function(e) {
+        var message =
+          'Javascript minification (gulp-uglify) has failed. Likely due to javascript errors listed above.';
 
-          // Console colors
-          // https://coderwall.com/p/yphywg/printing-colorful-text-in-terminal-when-run-node-js-script
-          console.log("\x1b[44m", message);
-          //console.log(e);
+        // Console colors
+        // https://coderwall.com/p/yphywg/printing-colorful-text-in-terminal-when-run-node-js-script
+        console.log('\x1b[44m', message);
+        //console.log(e);
+      })
+    )
+    // .pipe(concat('app.js')) // Don't have this module yet, but may be useful
+    .pipe(gulp.dest(CONFIG.js.Dest));
 
-      }))
-      // .pipe(concat('app.js')) // Don't have this module yet, but may be useful
-      .pipe(gulp.dest(CONFIG.js.Dest));
-});
-
-
+gulp.task('js', js);
 
 /////////////////////////////
 // IMAGES
 /////////////////////////////
 
-
-
-gulp.task('images', function() {
-  gulp.src(CONFIG.images.Src)
+const images = () =>
+  gulp
+    .src(CONFIG.images.Src)
     .pipe(changed(CONFIG.images.Dest))
     .pipe(imagemin())
     .pipe(gulp.dest(CONFIG.images.Dest));
 
-  // Just move over images that can't be minified
-  // gulp.src(CONFIG.images.Src + '/**/*.{woff}')
-  //   .pipe(gulp.dest(CONFIG.images.Dest));
-});
-
-
+gulp.task('images', images);
 
 /////////////////////////////
 // MISCELLANEOUS
 /////////////////////////////
 
-
-
-// Modernizr custom builds
-gulp.task('modernizr', function() {
-  gulp.src(CONFIG.js.Dest + '/*.js')
+const monderizr = () =>
+  gulp
+    .src(CONFIG.js.Dest + '/*.js')
     .pipe(modernizr(CONFIG.modernizrOptions))
     .pipe(uglify())
     .pipe(gulp.dest('vendor/modernizr'));
-});
+
+// Modernizr custom builds
+gulp.task('modernizr', monderizr);
 
 // Copy files
 // gulp.task('copy', function() {
@@ -190,53 +185,50 @@ gulp.task('modernizr', function() {
 //     .pipe(gulp.dest('build/exampleCopy'));
 // });
 
-
 /////////////////////////////
 // COMBINED TASKS
 /////////////////////////////
 
-
 // Default task to be run with `gulp`
-gulp.task('default', ['css', 'js', 'images']);
 
-gulp.task('watch', ['css', 'js', 'images'], function () {
+gulp.task('build', gulp.parallel('css', 'js', 'images', 'modernizr'));
+
+gulp.task('build.prod', gulp.parallel('css.prod', 'js', 'images'));
+
+gulp.task('default', gulp.parallel('build'));
+
+gulp.task(
+  'watch',
+  gulp.parallel('build', function(done) {
     livereload.listen();
+    gulp.watch(CONFIG.css.Src, css);
+    gulp.watch(CONFIG.js.Src, js);
+    gulp.watch(CONFIG.images.Src, images);
+    gulp
+      .watch([
+        CONFIG.css.Dest + '/**/*.css',
+        './**/*.twig',
+        CONFIG.js.Dest + '/**/*.js'
+      ])
+      .on('change', files => livereload.changed(files));
+    done();
+  })
+);
 
-    watch(CONFIG.css.Src, function(){
-        gulp.start('css');
-    });
-
-    watch(CONFIG.js.Src, function(){
-        gulp.start('js');
-    });
-
-    watch(CONFIG.images.Src, function(){
-        gulp.start('images');
-    });
-  
-    watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
-      livereload.changed(files);
-    });
-});
-
-gulp.task('watch.dev', ['css.dev', 'js'], function () {
+gulp.task(
+  'watch.dev',
+  gulp.parallel('build', function(done) {
     livereload.listen();
-
-    watch(CONFIG.css.Src, function(){
-        gulp.start('css.dev');
-    });
-
-    watch(CONFIG.js.Src, function(){
-        gulp.start('js');
-    });
-
-    watch(CONFIG.images.Src, function(){
-        gulp.start('images');
-    });
-
-    watch([CONFIG.css.Dest + '/**/*.css', './**/*.twig', CONFIG.js.Dest + '/**/*.js'], function (files){
-      livereload.changed(files);
-    });
-});
-
-gulp.task('init', ['css', 'js', 'images', 'modernizr']);
+    gulp.watch(CONFIG.css.Src, cssDev);
+    gulp.watch(CONFIG.js.Src, js);
+    gulp.watch(CONFIG.images.Src, images);
+    gulp
+      .watch([
+        CONFIG.css.Dest + '/**/*.css',
+        './**/*.twig',
+        CONFIG.js.Dest + '/**/*.js'
+      ])
+      .on('change', files => livereload.changed(files));
+    done();
+  })
+);

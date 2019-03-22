@@ -29,28 +29,6 @@ input[value="Remove"] {
 // input[type="email"],
 // input[type="password"]
 
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="week"],
-input[type="text"] {
-  width: $width-medium;
-}
-
-input[type="email"] {
-  width: $width-xlarge;
-}
-
-input[type="number"] {
-  width:  $width-xsmall;
-}
-
 /* Correct height of image inputs like inputs found in Paypal forms */
 input[type="image"] {
   height: auto;

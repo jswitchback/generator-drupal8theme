@@ -148,7 +148,7 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
 
       // Initial build of css, js & images
       this.log(yosay('******** SCAFFOLDING COMPLETE. RUNNING INITIAL GULP TASKS ********'));
-      this.spawnCommand('gulp', ['init']);
+      this.spawnCommand('gulp', ['build']);
 
     });
 

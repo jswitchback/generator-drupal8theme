@@ -124,13 +124,15 @@ use Drupal\Core\Template\Attribute;
 /**
  * Implements hook_preprocess_HOOK() for node.html.twig.
  */
-function <%= themeMachineName %>_preprocess_node(&$variables) {
-  // Remove the "Add new comment" link on teasers or when the comment form is
-  // displayed on the page.
-  if ($variables['teaser'] || !empty($variables['content']['comments']['comment_form'])) {
-    unset($variables['content']['links']['comment']['#links']['comment-add']);
-  }
-}
+// function <%= themeMachineName %>_preprocess_node(&$variables) {
+//   $type =  $variables['node']->getType();
+
+//   switch ($type) {
+//     case 'example_node_type':
+//       $variables['#attached']['library'][] = 'example_theme_library/example_library_name';
+//       break;
+//   }
+// }
 
 /**
  * Implements hook_preprocess_HOOK() for block.html.twig.

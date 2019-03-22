@@ -18,10 +18,6 @@
    #- core/drupal # Includes Drupal Behaviors!
    - core/jquery
    - core/jquery.once
-   #- <%= themeMachineName %>/html5shiv
-   - <%= themeMachineName %>/mediaMatch
-   - <%= themeMachineName %>/enquire
-   #- <%= themeMachineName %>/respond
    #- <%= themeMachineName %>/magnificPopup
 
    # Other core js from core/assets/
@@ -46,22 +42,6 @@
 
 
 # Installed via bower. Add as dependency to other library or attach to page in preprocess function
-html5shiv:
-  js:
-    vendor/html5shiv/dist/html5shiv.min.js: {}
-
-enquire:
-  js:
-    vendor/enquire/dist/enquire.min.js: {}
-
-mediaMatch:
-  js:
-    vendor/media-match/media.match.min.js: {}
-
-respond:
-  js:
-    vendor/dest/respond.min.js: {}
-
 magnific-popup:
   css:
     theme:

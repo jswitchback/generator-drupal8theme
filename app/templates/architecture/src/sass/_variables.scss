@@ -53,9 +53,6 @@ $h2-line-height: ($h2-line * $h2-lines) / $h2-font-size;
 $h3-line-height: 1.4; // Magic numbers
 $h4-line-height: 1.5; // Magic numbers
 
-
-// NOTE: $base-font-size & $base-line-height are also Compass variables that have default values.
-// http://compass-style.org/reference/compass/typography/vertical_rhythm/
 $base-line-height: $base-font-size * 1.5; // Typically 1.2-1.5 dependant upon size of font characters.
 $body-line-height: $base-line-height / $base-font-size;
 
@@ -153,12 +150,6 @@ $input-transition-duration: .1s;
 $input-disabled-background-color: $disabled-background-color;
 $input-disabled-font-color: $disabled-font-color;
 
-$width-xsmall: 60px;
-$width-small: 120px;
-$width-medium: 180px;
-$width-large: 240px;
-$width-xlarge: 300px;
-$width-xxlarge: 100%;
 $inline-field-gutter: .5rem;
 $inline-field-gutter: .5rem;
 

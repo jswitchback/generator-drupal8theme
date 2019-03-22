@@ -190,8 +190,7 @@
   width: 100%;
 }
 
-
-@include breakpoint($tablet-small-min) {
+@media (min-width: $breakpoint-small-min) {
   .col-msm-1,
   .col-msm-2,
   .col-msm-3,
@@ -342,7 +341,7 @@
   }
 }
 
-@include breakpoint($tablet-portrait-min) {
+@media (min-width: $breakpoint-medium-min) {
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,
@@ -493,7 +492,7 @@
   }
 }
 
-@include breakpoint($desktop-small-min) {
+@media (min-width: $breakpoint-large-min) {
   .col-md-1,
   .col-md-2,
   .col-md-3,
@@ -653,7 +652,7 @@
   }
 }
 
-@include breakpoint($desktop-min) {
+@media (min-width: $breakpoint-xlarge-min) {
   .col-lg-1,
   .col-lg-2,
   .col-lg-3,

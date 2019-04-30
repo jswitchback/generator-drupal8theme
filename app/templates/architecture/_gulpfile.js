@@ -11,10 +11,10 @@ var gulp = require('gulp'),
   livereload = require('gulp-livereload');
 
 /////////////////////////////
-// CONFIG
+// gulpSettings
 /////////////////////////////
 
-var CONFIG = {
+var gulpSettings = {
   autoprefixerOptions: {
     browsers: ['last 2 versions', '> 5%', 'not ie <= 8']
   },
@@ -89,33 +89,33 @@ var CONFIG = {
 
 const css = () =>
   gulp
-    .src(CONFIG.css.Src)
+    .src(gulpSettings.css.Src)
     .pipe(sourcemaps.init())
-    .pipe(sass(CONFIG.sassOptions.prod).on('error', sass.logError))
-    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
+    .pipe(sass(gulpSettings.sassOptions.prod).on('error', sass.logError))
+    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
     .pipe(stripCssComments({ preserve: false }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(CONFIG.css.Dest))
+    .pipe(gulp.dest(gulpSettings.css.Dest))
     .pipe(livereload());
 
 gulp.task('css', css);
 
 const cssDev = () =>
   gulp
-    .src(CONFIG.css.Src)
-    .pipe(sass(CONFIG.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
-    .pipe(gulp.dest(CONFIG.css.Dest))
+    .src(gulpSettings.css.Src)
+    .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
+    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
+    .pipe(gulp.dest(gulpSettings.css.Dest))
     .pipe(livereload());
 
 gulp.task('css.dev', cssDev);
 
 const cssProd = () =>
   gulp
-    .src(CONFIG.css.Src)
-    .pipe(sass(CONFIG.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer(CONFIG.autoprefixerOptions))
-    .pipe(gulp.dest(CONFIG.css.Dest));
+    .src(gulpSettings.css.Src)
+    .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
+    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
+    .pipe(gulp.dest(gulpSettings.css.Dest));
 
 gulp.task('css.prod', cssProd);
 
@@ -124,20 +124,20 @@ gulp.task('css.prod', cssProd);
 /////////////////////////////
 
 // gulp.task('minify', function () {
-//    gulp.src(CONFIG.js.Src)
-//       .pipe(uglify(CONFIG.jsOptions).on('error', function(e){
+//    gulp.src(gulpSettings.js.Src)
+//       .pipe(uglify(gulpSettings.jsOptions).on('error', function(e){
 //             console.log(e);
 //       }))
-//       .pipe(gulp.dest(CONFIG.js.Dest));
+//       .pipe(gulp.dest(gulpSettings.js.Dest));
 // });
 
 const js = () =>
   gulp
-    .src(CONFIG.js.Src)
+    .src(gulpSettings.js.Src)
     .pipe(jshint())
     .pipe(jshint.reporter('default'))
     .pipe(
-      uglify(CONFIG.jsOptions).on('error', function(e) {
+      uglify(gulpSettings.jsOptions).on('error', function(e) {
         var message =
           'Javascript minification (gulp-uglify) has failed. Likely due to javascript errors listed above.';
 
@@ -148,7 +148,7 @@ const js = () =>
       })
     )
     // .pipe(concat('app.js')) // Don't have this module yet, but may be useful
-    .pipe(gulp.dest(CONFIG.js.Dest));
+    .pipe(gulp.dest(gulpSettings.js.Dest));
 
 gulp.task('js', js);
 
@@ -158,10 +158,10 @@ gulp.task('js', js);
 
 const images = () =>
   gulp
-    .src(CONFIG.images.Src)
-    .pipe(changed(CONFIG.images.Dest))
+    .src(gulpSettings.images.Src)
+    .pipe(changed(gulpSettings.images.Dest))
     .pipe(imagemin())
-    .pipe(gulp.dest(CONFIG.images.Dest));
+    .pipe(gulp.dest(gulpSettings.images.Dest));
 
 gulp.task('images', images);
 
@@ -171,8 +171,8 @@ gulp.task('images', images);
 
 const monderizr = () =>
   gulp
-    .src(CONFIG.js.Dest + '/*.js')
-    .pipe(modernizr(CONFIG.modernizrOptions))
+    .src(gulpSettings.js.Dest + '/*.js')
+    .pipe(modernizr(gulpSettings.modernizrOptions))
     .pipe(uglify())
     .pipe(gulp.dest('vendor/modernizr'));
 
@@ -201,14 +201,14 @@ gulp.task(
   'watch',
   gulp.parallel('build', function(done) {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src, css);
-    gulp.watch(CONFIG.js.Src, js);
-    gulp.watch(CONFIG.images.Src, images);
+    gulp.watch(gulpSettings.css.Src, css);
+    gulp.watch(gulpSettings.js.Src, js);
+    gulp.watch(gulpSettings.images.Src, images);
     gulp
       .watch([
-        CONFIG.css.Dest + '/**/*.css',
+        gulpSettings.css.Dest + '/**/*.css',
         './**/*.twig',
-        CONFIG.js.Dest + '/**/*.js'
+        gulpSettings.js.Dest + '/**/*.js'
       ])
       .on('change', files => livereload.changed(files));
     done();
@@ -219,14 +219,14 @@ gulp.task(
   'watch.dev',
   gulp.parallel('build', function(done) {
     livereload.listen();
-    gulp.watch(CONFIG.css.Src, cssDev);
-    gulp.watch(CONFIG.js.Src, js);
-    gulp.watch(CONFIG.images.Src, images);
+    gulp.watch(gulpSettings.css.Src, cssDev);
+    gulp.watch(gulpSettings.js.Src, js);
+    gulp.watch(gulpSettings.images.Src, images);
     gulp
       .watch([
-        CONFIG.css.Dest + '/**/*.css',
+        gulpSettings.css.Dest + '/**/*.css',
         './**/*.twig',
-        CONFIG.js.Dest + '/**/*.js'
+        gulpSettings.js.Dest + '/**/*.js'
       ])
       .on('change', files => livereload.changed(files));
     done();

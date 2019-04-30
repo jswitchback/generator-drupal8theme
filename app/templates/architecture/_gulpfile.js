@@ -16,7 +16,7 @@ var gulp = require('gulp'),
 
 var gulpSettings = {
   autoprefixerOptions: {
-    browsers: ['last 2 versions', '> 5%', 'not ie <= 8']
+    browsers: ['last 2 versions', '> 5%', 'not ie <= 11']
   },
 
   sassOptions: {

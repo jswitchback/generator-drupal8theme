@@ -15,7 +15,7 @@
     build/js/responsive.js: {}
 
   dependencies:
-   #- core/drupal # Includes Drupal Behaviors!
+   - core/drupal # Includes Drupal Behaviors!
    - core/jquery
    - core/jquery.once
    #- <%= themeMachineName %>/magnificPopup

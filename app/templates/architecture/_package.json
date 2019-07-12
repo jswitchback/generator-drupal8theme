@@ -26,5 +26,10 @@
     "postinstall": "find node_modules/ -name '*.info' -type f -delete"
   },
   "author": "Rapid Development Group",
-  "license": "ISC"
+  "license": "ISC",
+  "browserslist": [
+    "last 2 versions",
+    "> 5%",
+    "not ie <= 11"
+  ]
 }

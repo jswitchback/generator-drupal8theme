@@ -15,9 +15,6 @@ var gulp = require('gulp'),
 /////////////////////////////
 
 var gulpSettings = {
-  autoprefixerOptions: {
-    browsers: ['last 2 versions', '> 5%', 'not ie <= 11']
-  },
 
   sassOptions: {
     dev: {
@@ -92,7 +89,7 @@ const css = () =>
     .src(gulpSettings.css.Src)
     .pipe(sourcemaps.init())
     .pipe(sass(gulpSettings.sassOptions.prod).on('error', sass.logError))
-    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
+    .pipe(autoprefixer())
     .pipe(stripCssComments({ preserve: false }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(gulpSettings.css.Dest))
@@ -104,7 +101,7 @@ const cssDev = () =>
   gulp
     .src(gulpSettings.css.Src)
     .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(gulpSettings.css.Dest))
     .pipe(livereload());
 
@@ -114,7 +111,7 @@ const cssProd = () =>
   gulp
     .src(gulpSettings.css.Src)
     .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer(gulpSettings.autoprefixerOptions))
+    .pipe(autoprefixer())
     .pipe(gulp.dest(gulpSettings.css.Dest));
 
 gulp.task('css.prod', cssProd);

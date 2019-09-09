@@ -3,14 +3,14 @@
 # https://www.drupal.org/docs/8/theming-drupal-8/working-with-breakpoints-in-drupal-8
 # <%= themeMachineName %>.mobile:
 #   label: mobile
-#   mediaQuery: 'all and (min-width: 0px) and (max-width: 860px)'
+#   mediaQuery: ''
 #   weight: 0
 #   multipliers:
 #     - 1x
 #     - 2x
 # <%= themeMachineName %>.desktop:
 #   label: desktop
-#   mediaQuery: 'all and (min-width: 861px) and (max-width: 1159px)'
+#   mediaQuery: '(min-width: 861px)'
 #   weight: 1
 #   multipliers:
 #     - 1x
@@ -18,7 +18,7 @@
 # <%= themeMachineName %>.fullwidth:
 #   label: 'full width'
 #   weight: 2
-#   mediaQuery: 'all and (min-width: 1160px)'
+#   mediaQuery: '(min-width: 1160px)'
 #   multipliers:
 #     - 1x
 #     - 2x

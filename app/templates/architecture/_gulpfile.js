@@ -1,14 +1,14 @@
 var gulp = require('gulp'),
-  sass = require('gulp-sass'),
-  sourcemaps = require('gulp-sourcemaps'),
-  stripCssComments = require('gulp-strip-css-comments'),
-  jshint = require('gulp-jshint'),
-  uglify = require('gulp-uglify'),
-  autoprefixer = require('gulp-autoprefixer'),
-  changed = require('gulp-changed'),
-  imagemin = require('gulp-imagemin'),
-  modernizr = require('gulp-modernizr'),
-  livereload = require('gulp-livereload');
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    stripCssComments = require('gulp-strip-css-comments'),
+    jshint = require('gulp-jshint'),
+    uglify = require('gulp-uglify'),
+    autoprefixer = require('gulp-autoprefixer'),
+    changed = require('gulp-changed'),
+    imagemin = require('gulp-imagemin'),
+    modernizr = require('gulp-modernizr'),
+    livereload = require('gulp-livereload');
 
 /////////////////////////////
 // gulpSettings

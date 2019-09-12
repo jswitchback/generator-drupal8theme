@@ -21,21 +21,20 @@ $viewport-max: 1080px;
 
 // Converted to ems for better font scaling & accessibility.
 // Forced base font size of 16px in second argument to prevent unexpected calculations for breakpoints.
-$breakpoint-xsmall-max: em(479px, 16px);
-$breakpoint-xsmall-min: em(480px, 16px);
+$breakpoint-xsmall-max: 29.9375em; // em(479px, 16px);
+$breakpoint-xsmall-min: 30em; // em(480px, 16px);
 
-$breakpoint-small-max: em(599px, 16px);
-$breakpoint-small-min: em(600px, 16px); // Typically 2 column break
+$breakpoint-small-max: 34.4375em; // em(599px, 16px);
+$breakpoint-small-min: 37.5em; // em(600px, 16px); // Typically start of 2 column
 
-$breakpoint-medium-max: em(767px, 16px);
-$breakpoint-medium-min: em(768px, 16px); // iPad portrait (landscape is 1024px)
+$breakpoint-medium-max: 47.4375em; // em(759px, 16px);
+$breakpoint-medium-min: 47.5em; // em(760px, 16px); // iPad portrait (landscape is 1024px)
 
-$breakpoint-large-max: em(839px, 16px);
-$breakpoint-large-min: em(840px, 16px); // Typically 3 column break
+$breakpoint-large-max: 52.4375em; // em(839px, 16px);
+$breakpoint-large-min: 52.5em; // em(840px, 16px); // Typically start of 3 column
 
-$breakpoint-xlarge-max: em(1079px, 16px);
-$breakpoint-xlarge-min: em(1080px, 16px); // Typically 4 column break
-
+$breakpoint-xlarge-max: 67.4375em; // em(1079px, 16px);
+$breakpoint-xlarge-min: 67.5em; // em(1080px, 16px); // Typically start of 4 column
 
 // Miscellanous breakpoints
 // $orientation-landscape: "only screen and (orientation: landscape)"; // Usage: @media #{$orientation-landscape} {}

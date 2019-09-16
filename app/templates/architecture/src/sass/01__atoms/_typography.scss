@@ -20,7 +20,7 @@
  */
 
 html {
-  font-family: $body-font; /* 1 */
+  font-family: $font--body; /* 1 */
   -ms-text-size-adjust: 100%; /* 1 */
   -webkit-text-size-adjust: 100%; /* 1 */
   // Establish a vertical rhythm unit using $base-line-height.
@@ -141,7 +141,7 @@ kbd,
 samp,
 tt,
 var {
-  font-family: $font-monospace; /* The $font-monospace value ends with ", serif". */
+  font-family: $font--monospace; /* The $font--monospace value ends with ", serif". */
 }
 
 /*

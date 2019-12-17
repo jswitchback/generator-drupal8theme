@@ -2,20 +2,17 @@ var gulp = require('gulp'),
     sass = require('gulp-sass'),
     sourcemaps = require('gulp-sourcemaps'),
     stripCssComments = require('gulp-strip-css-comments'),
-    jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
     autoprefixer = require('gulp-autoprefixer'),
     changed = require('gulp-changed'),
     imagemin = require('gulp-imagemin'),
-    modernizr = require('gulp-modernizr'),
     livereload = require('gulp-livereload');
 
 /////////////////////////////
-// gulpSettings
+// Gulp Settings
 /////////////////////////////
 
 var gulpSettings = {
-
   sassOptions: {
     dev: {
       errLogToConsole: true,
@@ -51,10 +48,12 @@ var gulpSettings = {
   },
 
   modernizrOptions: {
-    crawl: false,
-    cache: true,
-    options: ['setClasses'],
-    tests: [
+    "crawl" : false,
+    "cache" : true,
+    "options" : [
+        "setClasses"
+    ],
+    "tests" : [
       'svg',
       'details', // Require by Drupal Core js
       'inputtypes', // Required by Drupal Core js
@@ -65,7 +64,7 @@ var gulpSettings = {
       'teststyles', // Required by Drupal Core js
       'flexbox'
     ],
-    dest: false
+    "dest" : false
     // "excludeTests": [],
     // "customTests" : []
     // "devFile" : false,
@@ -81,6 +80,20 @@ var gulpSettings = {
 };
 
 /////////////////////////////
+// Miscellaneous
+/////////////////////////////
+
+// Modernizr custom builds
+const modernizr = () =>
+  gulp
+  .src(gulpSettings.js.Dest + '/*.js')
+  .pipe(modernizr(gulpSettings.modernizrOptions))
+  .pipe(uglify())
+  .pipe(gulp.dest(gulpSettings.js.Dest));
+
+gulp.task('modernizr', modernizr);
+
+/////////////////////////////
 // CSS
 /////////////////////////////
 
@@ -89,50 +102,21 @@ const css = () =>
     .src(gulpSettings.css.Src)
     .pipe(sourcemaps.init())
     .pipe(sass(gulpSettings.sassOptions.prod).on('error', sass.logError))
+    .pipe(sourcemaps.write())
     .pipe(autoprefixer())
     .pipe(stripCssComments({ preserve: false }))
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(gulpSettings.css.Dest))
     .pipe(livereload());
 
 gulp.task('css', css);
 
-const cssDev = () =>
-  gulp
-    .src(gulpSettings.css.Src)
-    .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest(gulpSettings.css.Dest))
-    .pipe(livereload());
-
-gulp.task('css.dev', cssDev);
-
-const cssProd = () =>
-  gulp
-    .src(gulpSettings.css.Src)
-    .pipe(sass(gulpSettings.sassOptions.dev).on('error', sass.logError))
-    .pipe(autoprefixer())
-    .pipe(gulp.dest(gulpSettings.css.Dest));
-
-gulp.task('css.prod', cssProd);
-
 /////////////////////////////
 // JS
 /////////////////////////////
 
-// gulp.task('minify', function () {
-//    gulp.src(gulpSettings.js.Src)
-//       .pipe(uglify(gulpSettings.jsOptions).on('error', function(e){
-//             console.log(e);
-//       }))
-//       .pipe(gulp.dest(gulpSettings.js.Dest));
-// });
-
 const js = () =>
   gulp
     .src(gulpSettings.js.Src)
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
     .pipe(
       uglify(gulpSettings.jsOptions).on('error', function(e) {
         var message =
@@ -144,7 +128,6 @@ const js = () =>
         //console.log(e);
       })
     )
-    // .pipe(concat('app.js')) // Don't have this module yet, but may be useful
     .pipe(gulp.dest(gulpSettings.js.Dest));
 
 gulp.task('js', js);
@@ -166,31 +149,13 @@ gulp.task('images', images);
 // MISCELLANEOUS
 /////////////////////////////
 
-const monderizr = () =>
-  gulp
-    .src(gulpSettings.js.Dest + '/*.js')
-    .pipe(modernizr(gulpSettings.modernizrOptions))
-    .pipe(uglify())
-    .pipe(gulp.dest('vendor/modernizr'));
-
-// Modernizr custom builds
-gulp.task('modernizr', monderizr);
-
-// Copy files
-// gulp.task('copy', function() {
-//   gulp.src('src/example/**/*.{woff, ttf, svg}')
-//     .pipe(gulp.dest('build/exampleCopy'));
-// });
 
 /////////////////////////////
 // COMBINED TASKS
 /////////////////////////////
 
 // Default task to be run with `gulp`
-
 gulp.task('build', gulp.parallel('css', 'js', 'images', 'modernizr'));
-
-gulp.task('build.prod', gulp.parallel('css.prod', 'js', 'images'));
 
 gulp.task('default', gulp.parallel('build'));
 
@@ -199,24 +164,6 @@ gulp.task(
   gulp.parallel('build', function(done) {
     livereload.listen();
     gulp.watch(gulpSettings.css.Src, css);
-    gulp.watch(gulpSettings.js.Src, js);
-    gulp.watch(gulpSettings.images.Src, images);
-    gulp
-      .watch([
-        gulpSettings.css.Dest + '/**/*.css',
-        './**/*.twig',
-        gulpSettings.js.Dest + '/**/*.js'
-      ])
-      .on('change', files => livereload.changed(files));
-    done();
-  })
-);
-
-gulp.task(
-  'watch.dev',
-  gulp.parallel('build', function(done) {
-    livereload.listen();
-    gulp.watch(gulpSettings.css.Src, cssDev);
     gulp.watch(gulpSettings.js.Src, js);
     gulp.watch(gulpSettings.images.Src, images);
     gulp

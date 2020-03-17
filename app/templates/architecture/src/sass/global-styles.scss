@@ -1,5 +1,5 @@
 // Import Sass mixins, variables, etc.
-@import "01__identity/_base.scss";
+@import "01__Identity/_base.scss";
 
 //
 // Layouts
@@ -46,11 +46,11 @@
 // @performance: Also, these could be attached to entity templates as seoparate librabries
 // to reduce the amount of styles that load on every page
 
-@import "04__Entities/Node/all.scss";
-@import "04__Entities/Node/article.scss";
-@import "04__Entities/Node/page.scss";
-@import "04__Entities/Paragraphs/all.scss";
-@import "04__Entities/Paragraphs/media-card.scss";
+@import "04__Entities/Node/_all.scss";
+@import "04__Entities/Node/_article.scss";
+@import "04__Entities/Node/_page.scss";
+@import "04__Entities/Paragraphs/_all.scss";
+@import "04__Entities/Paragraphs/_hero.scss";
 
 //
 // Pages

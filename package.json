@@ -1,6 +1,6 @@
 {
   "name": "generator-drupal8theme",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Yeoman generator",
   "license": "MIT",
   "main": "app/index.js",

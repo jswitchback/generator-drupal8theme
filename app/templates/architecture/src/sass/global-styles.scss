@@ -46,10 +46,11 @@
 // @performance: Also, these could be attached to entity templates as seoparate librabries
 // to reduce the amount of styles that load on every page
 
-@import "04__Entities/_node.scss";
-@import "04__Entities/_node.scss";
-@import "04__Entities/_node.scss";
-@import "04__Entities/_node.scss";
+@import "04__Entities/Node/all.scss";
+@import "04__Entities/Node/article.scss";
+@import "04__Entities/Node/page.scss";
+@import "04__Entities/Paragraphs/all.scss";
+@import "04__Entities/Paragraphs/media-card.scss";
 
 //
 // Pages

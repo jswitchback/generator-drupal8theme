@@ -1,0 +1,45 @@
+/* @partial ...Elements/_tables.scss */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%; /* Prevent cramped-looking tables */
+  /* Add vertical rhythm margins. */
+  margin: $vert-gutter 0;
+}
+
+tbody {
+  border-style: $table-tbody-border-style;
+  border-width: $table-tbody-border-width;
+  border-color: $table-tbody-border-color;
+}
+
+th {
+  text-align: left; /* LTR */
+  padding-right: 1em; /* LTR */
+  border-style: $table-th-border-style;
+  border-width: $table-th-border-width;
+  border-color: $table-th-border-color;
+}
+
+td {
+  padding: $table-td-padding;
+}
+
+tr.even {
+  background: $table-tr-even-background;
+  border-style: $table-tr-even-border-style;
+  border-width: $table-tr-even-border-width;
+  border-color: $table-tr-even-border-color;
+}
+
+tr.odd {
+  background: $table-tr-odd-background;
+  border-style: $table-tr-odd-border-style;
+  border-width: $table-tr-odd-border-width;
+  border-color: $table-tr-odd-border-color;
+}
+
+tr.drag {
+  background: $table-tr-drag-background;
+}

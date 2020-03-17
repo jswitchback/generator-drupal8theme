@@ -1,0 +1,68 @@
+// Import Sass mixins, variables, etc.
+@import "01__identity/_base.scss";
+
+//
+// Layouts
+//
+
+@import "06__Layouts/_default.scss";
+// @import "06__Layouts/_bootstrap.scss";
+
+//
+// Elements
+//
+
+@import "02__Elements/_normalize.scss";
+@import "02__Elements/_links.scss";
+@import "02__Elements/_lists.scss";
+@import "02__Elements/_helpers.scss";
+@import "02__Elements/_animation.scss";
+@import "02__Elements/_typography.scss";
+@import "02__Elements/_icon-font.scss";
+@import "02__Elements/_form-elements.scss";
+@import "02__Elements/_buttons.scss";
+@import "02__Elements/_fieldsets.scss";
+@import "02__Elements/_tables.scss";
+@import "02__Elements/_field.scss";
+
+//
+// Components
+//
+
+@import "03__Components/_pager.scss";
+@import "03__Components/_breadcrumb.scss";
+@import "03__Components/_tabs.scss";
+@import "03__Components/_menus.scss";
+@import "03__Components/_messages.scss";
+@import "03__Components/_header.scss";
+@import "03__Components/_footer.scss";
+@import "03__Components/_forms.scss";
+
+//
+// Entities (Nodes, paragraphs, etc)
+//
+// Only used when it doesn't make sense as a component.
+// Still avoid using Drupal classes like node, paragraph and field
+// @performance: Also, these could be attached to entity templates as seoparate librabries
+// to reduce the amount of styles that load on every page
+
+@import "04__Entities/_node.scss";
+@import "04__Entities/_node.scss";
+@import "04__Entities/_node.scss";
+@import "04__Entities/_node.scss";
+
+//
+// Pages
+//
+// @performance: These could be attached to page templates or
+// added in a preprocess as separate librabries to reduce
+// the amount of styles that load on every page
+
+@import "05__Pages/_search.scss";
+@import "05__Pages/_403.scss";
+@import "05__Pages/_404.scss";
+
+//
+// Print styles should be last
+//
+@import "06__Layouts/_print.scss";

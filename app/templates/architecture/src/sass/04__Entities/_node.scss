@@ -1,0 +1,11 @@
+/* @partial ...Entities/_node.scss */
+
+.node-unpublished {
+  /* Unpublished nodes */
+  /* background-color: #fff4f4; */ /* Drupal core uses a #fff4f4 background */
+
+  p.unpublished {
+    /* The word "Unpublished" displayed underneath the content. */
+    @include unpublished-div;
+  }
+}

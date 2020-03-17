@@ -1,0 +1,124 @@
+/* @partial ...Components/_forms.scss */
+
+/* Wrapper for a form element (or group of form elements) and its label. */
+.form-item {
+  margin: $vert-gutter 0;
+
+  /* Pack groups of checkboxes and radio buttons closer together. */
+  .form-checkboxes &,
+  .form-radios & {
+    /* Drupal core uses "0.4em 0". */
+    margin: 0;
+  }
+
+  /* Form items in a table. */
+  tr.odd &,
+  tr.even & {
+    margin: 0;
+  }
+  label {
+    /* The label for a form element */
+    display: block;
+    font-weight: $form-item-label-font-weight;
+    margin: $form-item-label-margin;
+    font-size: $form-item-label-font-size;
+  }
+
+  /* The descriptive help text (separate from the label). */
+  .description {
+    font-size: $form-item-description-font-size;
+    margin-top: 4px;
+  }
+}
+
+.form-required {
+  /* The part of the label that indicates a required field */
+  color: $error-text;
+}
+
+/* Labels for radios and checkboxes. */
+// label.option {
+//   display: inline;
+//   font-weight: normal;
+// }
+
+/* Buttons used by contrib modules like Media. */
+// a.button {
+//   @include appearance(button);
+// }
+
+/* Password confirmation. */
+// .password-parent,
+// .confirm-parent {
+//   margin: 0;
+// }
+
+/* Drupal's default login form block. */
+// #user-login-form {
+//   text-align: left; /* LTR */
+// }
+
+/**
+ * Autocomplete.
+ *
+ * @see autocomplete.js
+ */
+
+/* Suggestion list. */
+// #autocomplete .selected {
+//   background: #0072b9;
+//   color: #fff;
+// }
+
+/* Base webform styles */
+
+// .webform-client-form {
+//   border-top: 5px solid #ffffff;
+//   border-bottom: 5px solid $link-color;
+//   background-color: #f1f1f1;
+//   padding: 24px;
+//   fieldset {
+//     @include micro-clearfix;
+//     background: none;
+//     border: none;
+//     padding: 0;
+//     border-bottom: 1px solid #D1D1D1;
+//     padding-bottom: 1em;
+//     margin-bottom: 1.5em;
+//     legend {
+//       font-size: 1.143em;
+//       margin-top: 10px;
+//       margin-bottom: 10px;
+//       color: #E36E5F;
+//       font-weight: bold;
+//     }
+//   }
+//   .form-item {
+//     margin: 0 0 20px 0;
+//   }
+//   .form-actions {
+//     margin-bottom: 0;
+//     text-align: right;
+//     input {
+//       margin-right: 0;
+//       margin-left: 16px;
+//     }
+//   }
+//   .webform-component-textfield,
+//   .webform-component-select {
+//     display: inline-block;
+//     margin-right: 8px;
+//   }
+// }
+
+// .node-webform.view-mode-full {
+//   .field-body {
+//     padding: 1em 0;
+//   }
+// }
+
+// #webform-component-edit-form { /* adding spacing to webform submit bottom */
+//   input [type="submit"] {
+//     margin-top: 1em;
+//   }
+// }

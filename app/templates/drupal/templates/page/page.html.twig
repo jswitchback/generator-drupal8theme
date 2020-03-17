@@ -84,9 +84,16 @@
 
   </main>
 
-  {% if page.footer %}
+  {% if page.content_secondary %}
+    <div class="layout-content-bottom" role="complementary">
+      {{ page.content_secondary }}
+    </div>
+  {% endif %}
+
+  {% if page.footer or page.footer_secondary %}
     <footer role="contentinfo" class="footer">
       {{ page.footer }}
+      {{ page.footer_secondary }}
     </footer>
   {% endif %}
 

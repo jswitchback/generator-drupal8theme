@@ -1,0 +1,111 @@
+/* @partial ...Elements/_helpers.scss */
+
+/* Responsive tables... Wrap <table> in div and it will scroll when overflowing.
+   ================================================================================ */
+
+.table-responsive {
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  -ms-overflow-style: scrollbar; // -ms-autohiding-scrollbar ... http://msdn.microsoft.com/en-us/library/windows/apps/hh441298.aspx
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 ($vert-gutter * 2) 0;
+
+  table {
+    max-width: 100%;
+  }
+}
+
+/* Responsive video embed. Youtube / Vimeo
+   ========================================================================== */
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Accessibility features
+ ========================================================================== */
+
+/* element-invisible as defined by http://snook.ca/archives/html_and_css/hiding-content-for-accessibility */
+.element-invisible,
+%element-invisible {
+  @include element-invisible;
+}
+
+/* Turns off the element-invisible effect. */
+%element-invisible-off {
+  @include element-invisible-off;
+}
+
+.element-focusable,
+%element-focusable {
+  @extend %element-invisible;
+
+  &:active,
+  &:focus {
+    @extend %element-invisible-off;
+  }
+}
+
+// FOUNDATION
+// @TODO Take what we need
+
+// .hide {
+//   display: none !important; }
+
+// .invisible {
+//   visibility: hidden; }
+
+// @media screen and (min-width: 0em) and (max-width: 39.9375em) {
+//   .hide-for-small-only {
+//     display: none !important; } }
+
+// @media screen and (max-width: 0em), screen and (min-width: 40em) {
+//   .show-for-small-only {
+//     display: none !important; } }
+
+// @media screen and (min-width: 40em) {
+//   .hide-for-medium {
+//     display: none !important; } }
+
+// @media screen and (max-width: 39.9375em) {
+//   .show-for-medium {
+//     display: none !important; } }
+
+// @media screen and (min-width: 40em) and (max-width: 63.9375em) {
+//   .hide-for-medium-only {
+//     display: none !important; } }
+
+// @media screen and (max-width: 39.9375em), screen and (min-width: 64em) {
+//   .show-for-medium-only {
+//     display: none !important; } }
+
+// @media screen and (min-width: 64em) {
+//   .hide-for-large {
+//     display: none !important; } }
+
+// @media screen and (max-width: 63.9375em) {
+//   .show-for-large {
+//     display: none !important; } }
+
+// @media screen and (min-width: 64em) and (max-width: 74.9375em) {
+//   .hide-for-large-only {
+//     display: none !important; } }
+
+// @media screen and (max-width: 63.9375em), screen and (min-width: 75em) {
+//   .show-for-large-only {
+//     display: none !important; } }

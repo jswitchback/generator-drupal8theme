@@ -1,0 +1,52 @@
+/* @partial ...Components/_tabs.scss */
+
+ul.tabs__primary,
+ul.tabs__secondary {
+  @include micro-clearfix;
+  list-style: none;
+  margin: 1rem 0 2.5rem;
+  padding: 0 0.25rem;
+  white-space: nowrap;
+  li {
+    float: left; /* LTR */
+    margin: 0.5rem 0.25rem 0;
+  }
+  a,
+  a:link {
+    display: block;
+    text-decoration: none;
+  }
+}
+
+ul.tabs__primary {
+  li {
+    margin: 0.5rem 0 0 0.25rem;
+    &.is-active {
+      a {
+        background-color: $tabs-background-color--active;
+        color: $tabs-content-color--active;
+        border: 1px solid $tabs-background-color--active;
+      }
+    }
+    a {
+      font-size: $tabs-font-size;
+      text-transform: uppercase;
+      background-color: $tabs-background-color;
+      border: 1px solid $tabs-border-color;
+      border-top-radius: $tabs-border-radius;
+      color: $tabs-content-color;
+      padding: 0 1.5rem;
+      &:hover {
+        text-decoration: none;
+        background-color: $tabs-background-color--active;
+        border: 1px solid $tabs-background-color--active;
+      }
+      &.active {
+        background-color: $tabs-background-color--active;
+        color: $tabs-content-color--active;
+        &:hover {
+        }
+      }
+    }
+  }
+}

@@ -110,15 +110,10 @@ var Drupal8themeGenerator = yeoman.generators.Base.extend({
       this.template('drupal/_scripts.js', 'src/js/scripts.js', this.promptinput);
       this.template('drupal/_README.txt', 'README.txt', this.promptinput);
       this.directory('drupal/templates', 'templates');
-      this.dest.mkdir('templates/regions');
-      this.dest.mkdir('templates/views');
-      this.dest.mkdir('templates/blocks');
-      this.dest.mkdir('templates/nodes');
-      this.dest.mkdir('templates/fields');
+      this.dest.mkdir('templates/taxonomy');
       this.src.copy('drupal/favicon.ico', 'favicon.ico');
       this.src.copy('drupal/logo.png', 'logo.png');
       this.src.copy('drupal/screenshot.png', 'screenshot.png');
-
     }
   },
 

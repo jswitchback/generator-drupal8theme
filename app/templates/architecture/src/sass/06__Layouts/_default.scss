@@ -1,0 +1,29 @@
+/* @partial ..Layouts/_default.scss */
+
+// Adds outlines around elements to fix shotty layout.
+// @include $debug-layout;
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+// @TODO: Change these to individual regions (header, content, footer)
+.layout-container,
+.region-footer {
+  @include layout-container;
+}
+
+.main,
+.region-footer {
+  @include layout-gutter;
+  @include micro-clearfix;
+}

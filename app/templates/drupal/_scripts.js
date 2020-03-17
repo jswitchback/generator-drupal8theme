@@ -1,4 +1,4 @@
-(function ($, Drupal, window, document, undefined) {
+(function ($, Drupal) {
 
 // To understand behaviors, see https://drupal.org/node/756722#behaviors
 Drupal.behaviors.<%= themeMachineName %> = {
@@ -9,4 +9,4 @@ Drupal.behaviors.<%= themeMachineName %> = {
   }
 };
 
-})(jQuery, Drupal, this, this.document);
+})(jQuery, Drupal);

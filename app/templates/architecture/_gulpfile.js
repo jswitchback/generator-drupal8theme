@@ -92,7 +92,7 @@ const featureDetection = () =>
   .pipe(uglify())
   .pipe(gulp.dest(gulpSettings.js.Dest));
 
-gulp.task('modernizr', modernizr);
+gulp.task('featureDetection', featureDetection);
 
 /////////////////////////////
 // CSS

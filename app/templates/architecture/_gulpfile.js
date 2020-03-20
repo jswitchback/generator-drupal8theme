@@ -6,7 +6,8 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     changed = require('gulp-changed'),
     imagemin = require('gulp-imagemin'),
-    livereload = require('gulp-livereload');
+    livereload = require('gulp-livereload'),
+    modernizr = require('gulp-modernizr');
 
 /////////////////////////////
 // Gulp Settings
@@ -84,7 +85,7 @@ var gulpSettings = {
 /////////////////////////////
 
 // Modernizr custom builds
-const modernizr = () =>
+const featureDetection = () =>
   gulp
   .src(gulpSettings.js.Dest + '/*.js')
   .pipe(modernizr(gulpSettings.modernizrOptions))
@@ -155,7 +156,7 @@ gulp.task('images', images);
 /////////////////////////////
 
 // Default task to be run with `gulp`
-gulp.task('build', gulp.parallel('css', 'js', 'images', 'modernizr'));
+gulp.task('build', gulp.parallel('css', 'js', 'images', 'featureDetection'));
 
 gulp.task('default', gulp.parallel('build'));
 

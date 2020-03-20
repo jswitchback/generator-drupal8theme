@@ -155,9 +155,9 @@ gulp.task('images', images);
 // COMBINED TASKS
 /////////////////////////////
 
-// Default task to be run with `gulp`
 gulp.task('build', gulp.parallel('css', 'js', 'images', 'featureDetection'));
 
+// Default task to be run with `gulp`
 gulp.task('default', gulp.parallel('build'));
 
 gulp.task(

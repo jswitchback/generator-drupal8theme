@@ -9,7 +9,7 @@
   overflow-x: scroll;
   -ms-overflow-style: scrollbar; // -ms-autohiding-scrollbar ... http://msdn.microsoft.com/en-us/library/windows/apps/hh441298.aspx
   -webkit-overflow-scrolling: touch;
-  margin: 0 0 ($vert-gutter * 2) 0;
+  margin: 0 0 ($gutter * 2) 0;
 
   table {
     max-width: 100%;

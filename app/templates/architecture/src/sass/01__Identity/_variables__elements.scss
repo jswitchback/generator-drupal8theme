@@ -2,12 +2,10 @@
 // GENERAL VARIABLES
 // =============================================================================
 
-
-
 // SHARED FORM VARIABLES
 $ui-border-color: lighten($blue-gray, 28%);
 $ui-background-color: lighten($blue-gray, 32%);
-$ui-padding: ($vert-gutter/2) ($horiz-gutter/2);
+$ui-padding: ($gutter/2) ($gutter/2);
 $ui-border-radius: 2px;
 
 // SHARED STATES
@@ -15,13 +13,9 @@ $delete-color: $red; // delete & remove buttons / inputs
 $disabled-background-color: $gray-lighter;
 $disabled-font-color: $gray-light;
 
-
-
 // =============================================================================
 // ATOM (element) VARIABLES
 // =============================================================================
-
-
 
 // TEXT
 $header-font: $sans-serif;
@@ -30,11 +24,9 @@ $block-title-color: $page-title-color;
 $font--body: $sans-serif;
 $font--monospace: $courier; // <pre>, <code> tags
 
-
 // BODY
 $body-font-color: $gray-darker;
 $body-bgrd-color: #ffffff;
-
 
 // LINKS
 $link-color: $blue-gray;
@@ -43,7 +35,6 @@ $link-color-hover: darken($link-color, 5%);
 $link-color-focus: darken($link-color, 10%);
 $link-color-active: darken($link-color, 10%);
 $link-text-decoration: none;
-
 
 // FORM INPUTS, BUTTONS & SUBMITS
 $input-padding: 8px 16px;
@@ -58,25 +49,23 @@ $input-border-color: $ui-border-color;
 $input-border-color-focus: $link-color;
 $input-border-radius: $ui-border-radius;
 
-$input-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+$input-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
 $input-box-shadow-focus: 0 0 2px $link-color;
-$input-transition-duration: .1s;
+$input-transition-duration: 0.1s;
 
 $input-disabled-background-color: $disabled-background-color;
 $input-disabled-font-color: $disabled-font-color;
 
-$inline-field-gutter: .5rem;
-$inline-field-gutter: .5rem;
+$inline-field-gutter: 0.5rem;
+$inline-field-gutter: 0.5rem;
 
 $placeholder-color: #999999;
 $placeholder-focus-color: $input-background-color;
 
-
 // BUTTONS
 $button-color: $link-color;
-$button-border: #DDDDDD;
+$button-border: #dddddd;
 $button-border-radius: $ui-border-radius;
-
 
 // BLOCKQUOTES
 $blockquote-border-color: $ui-border-color;
@@ -84,13 +73,9 @@ $blockquote-border-color: $ui-border-color;
 // HORIZONTAL RULE
 $horizontal-rule-border: $ui-border-color;
 
-
-
 // =============================================================================
 // MOLECULE / ORGANISM (module / components) VARIABLES
 // =============================================================================
-
-
 
 // MESSAGES
 $success-border: $green;
@@ -103,47 +88,46 @@ $error-border: $red;
 $error-background: lighten($error-border, 45%);
 $error-text: $error-border;
 
-
 // PAGER
 $pager-color: $link-color;
 $pager-color-hover: $link-color-hover;
 
-
 // FIELDSET
 $legend-font-weight: bold;
 
-
 // FORM ITEMS
-$form-item-margin: 0 0 $horiz-gutter 0;
+$form-item-margin: 0 0 $gutter 0;
 $form-item-label-font-weight: bold;
 $form-item-label-font-size: 13px;
 $form-item-label-margin: 0 0 0 0;
 $form-item-description-font-size: 13px;
 
-
 // TABLES
 $table-tbody-border-style: solid;
 $table-tbody-border-width: 1px 1px 1px 1px;
-$table-tbody-border-color: darken($body-bgrd-color, 2%) transparent transparent transparent;
+$table-tbody-border-color: darken($body-bgrd-color, 2%) transparent transparent
+  transparent;
 
 $table-th-border-style: solid;
 $table-th-border-width: 1px 1px 1px 1px;
-$table-th-border-color: transparent transparent darken($body-bgrd-color, 2%) transparent;
+$table-th-border-color: transparent transparent darken($body-bgrd-color, 2%)
+  transparent;
 
 $table-tr-even-background: lighten($body-bgrd-color, 2%);
 $table-tr-even-border-style: solid;
 $table-tr-even-border-width: 1px 1px 1px 1px;
-$table-tr-even-border-color: darken($body-bgrd-color, 2%) transparent darken($body-bgrd-color, 2%) transparent;
+$table-tr-even-border-color: darken($body-bgrd-color, 2%) transparent
+  darken($body-bgrd-color, 2%) transparent;
 
 $table-tr-odd-background: transparent;
 $table-tr-odd-border-style: solid;
 $table-tr-odd-border-width: 1px 1px 1px 1px;
-$table-tr-odd-border-color: darken($body-bgrd-color, 2%) transparent transparent transparent;
+$table-tr-odd-border-color: darken($body-bgrd-color, 2%) transparent transparent
+  transparent;
 
 $table-tr-drag-background: $table-tr-odd-border-color;
-$table-td-padding: .25rem .5rem;
+$table-td-padding: 0.25rem 0.5rem;
 $table-td-disabled-background: #ccc;
-
 
 // DRUPAL EDIT, VERTICAL & HORIZONTAL TABS
 $tabs-background-color: $ui-background-color;
@@ -154,5 +138,3 @@ $tabs-content-color: $body-font-color;
 $tabs-content-color--active: #ffffff;
 $tabs-border-radius: $ui-border-radius;
 $tabs-font-size: 1rem;
-
-

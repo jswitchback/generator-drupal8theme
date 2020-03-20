@@ -4,7 +4,7 @@
 
 // Defaults
 .messages {
-  margin: $vert-gutter 0;
+  margin: $gutter 0;
   background-color: $success-background;
   border: 1px solid $success-border;
   color: $success-text;
@@ -21,7 +21,7 @@
   color: #333;
 }
 .messages + .messages {
-  margin-top: $vert-gutter;
+  margin-top: $gutter;
 }
 // End defaults
 

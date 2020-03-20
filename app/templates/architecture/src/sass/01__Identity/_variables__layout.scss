@@ -2,18 +2,14 @@
 // VERTICAL RHTHYM & GRID VARIABLES
 // =============================================================================
 
-
 // Universal vertical rhthym gutter. Determines baseline gutters
 // as well as block and form element margins,
 // p + p tags, hr tags, blockquote and pre tag padding
-$vert-gutter: $base-line-height * 1.5;
-$horiz-gutter: 20px;
-
+$gutter: 20px;
 
 // =============================================================================
 // MEDIA QUERY VARIABLES
 // =============================================================================
-
 
 // Set min and max width of the overall layout
 $viewport-min: 320px;
@@ -39,4 +35,3 @@ $breakpoint-xlarge-min: 67.5em; // em(1080px, 16px); // Typically start of 4 col
 // Miscellanous breakpoints
 // $orientation-landscape: "only screen and (orientation: landscape)"; // Usage: @media #{$orientation-landscape} {}
 // $orientation-portrait: "only screen and (orientation: portrait)"; // Usage: @media #{$orientation-portrait} {}
-

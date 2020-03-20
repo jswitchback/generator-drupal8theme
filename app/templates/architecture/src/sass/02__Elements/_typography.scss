@@ -70,7 +70,7 @@ hr {
   border: none;
   background: $horizontal-rule-border;
   padding: 0;
-  margin: ($vert-gutter * 2) 0;
+  margin: ($gutter * 2) 0;
 }
 
 /*
@@ -84,7 +84,7 @@ strong {
 
 blockquote {
   /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
-  margin: $vert-gutter $horiz-gutter;
+  margin: $gutter $gutter;
   border-left: (0.2 * $base-font-size) solid $blockquote-border-color;
   padding: (0.5 * $base-font-size) $base-font-size;
 }
@@ -114,14 +114,14 @@ mark {
 pre {
   overflow: auto; /* 1 */
   /* Sets 1 unit of vertical rhythm on the top and bottom margin. */
-  margin: $vert-gutter 0;
+  margin: $gutter 0;
   white-space: pre; /* 2 */
   white-space: pre-wrap; /* 2 */
   word-wrap: break-word; /* 2 */
 }
 
 p {
-  margin: 0 0 $vert-gutter 0;
+  margin: 0 0 $gutter 0;
 }
 
 /**

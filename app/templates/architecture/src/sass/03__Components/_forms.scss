@@ -2,7 +2,7 @@
 
 /* Wrapper for a form element (or group of form elements) and its label. */
 .form-item {
-  margin: $vert-gutter 0;
+  margin: $gutter 0;
 
   /* Pack groups of checkboxes and radio buttons closer together. */
   .form-checkboxes &,

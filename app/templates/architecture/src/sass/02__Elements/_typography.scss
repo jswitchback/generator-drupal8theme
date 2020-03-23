@@ -1,15 +1,52 @@
 /* @partial ...Elements/_typography.scss */
 
 // Example font-face declaration
+// Normal
 // @font-face {
-//   font-family: 'Example';
-//   src: url('../fonts/example.eot');
-//   src: url('../fonts/example.eot?iefix') format('eot'),
-//     url('../fonts/example.woff') format('woff'),
-//     url('../fonts/example.ttf') format('truetype'),
-//     url('../fonts/example.svg#webfontOkOndcij') format('svg');
+//   font-family: 'Example_Name';
+//   src: url('../../vendor/fonts/example.eot');
+//   src: url('../../vendor/fonts/example.eot?iefix') format('eot'),
+//     url('../../vendor/fonts/example.woff') format('woff'),
+//     url('../../vendor/fonts/example.ttf') format('truetype'),
+//     url('../../vendor/fonts/example.svg#webfontOkOndcij') format('svg');
 //   font-weight: normal;
 //   font-style: normal;
+// }
+
+// Normal / Italic
+// @font-face {
+//   font-family: 'Example_Name';
+//   src: url('../../vendor/fonts/example.eot');
+//   src: url('../../vendor/fonts/example.eot?iefix') format('eot'),
+//     url('../../vendor/fonts/example.woff') format('woff'),
+//     url('../../vendor/fonts/example.ttf') format('truetype'),
+//     url('../../vendor/fonts/example.svg#webfontOkOndcij') format('svg');
+//   font-weight: normal;
+//   font-style: italic;
+// }
+
+// Bold
+// @font-face {
+//   font-family: 'Example_Name';
+//   src: url('../../vendor/fonts/example.eot');
+//   src: url('../../vendor/fonts/example.eot?iefix') format('eot'),
+//     url('../../vendor/fonts/example.woff') format('woff'),
+//     url('../../vendor/fonts/example.ttf') format('truetype'),
+//     url('../../vendor/fonts/example.svg#webfontOkOndcij') format('svg');
+//   font-weight: bold;
+//   font-style: normal;
+// }
+
+// Bold / Italic
+// @font-face {
+//   font-family: 'Example_Name';
+//   src: url('../../vendor/fonts/example.eot');
+//   src: url('../../vendor/fonts/example.eot?iefix') format('eot'),
+//     url('../../vendor/fonts/example.woff') format('woff'),
+//     url('../../vendor/fonts/example.ttf') format('truetype'),
+//     url('../../vendor/fonts/example.svg#webfontOkOndcij') format('svg');
+//   font-weight: bold;
+//   font-style: italic;
 // }
 
 /**

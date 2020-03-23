@@ -73,7 +73,7 @@ regions:
   highlighted: "Highlighted"
   help: "Help"
   content: "Content"
-  content_secondary: "Content"
+  content_secondary: "Secondary content"
   sidebar_first: "Sidebar first"
   sidebar_second: "Sidebar Second"
   footer: "Footer"

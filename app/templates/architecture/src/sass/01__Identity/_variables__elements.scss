@@ -18,13 +18,10 @@ $disabled-font-color: $gray-light;
 // =============================================================================
 
 // TEXT
-$header-font: $sans-serif;
-$page-title-color: $gray-dark;
-$block-title-color: $page-title-color;
+$font--header: $sans-serif;
 $font--body: $sans-serif;
 $font--monospace: $courier; // <pre>, <code> tags
-
-// BODY
+$page-title-color: $gray-dark;
 $body-font-color: $gray-darker;
 $body-bgrd-color: #ffffff;
 
@@ -87,13 +84,6 @@ $warning-text: $warning-border;
 $error-border: $red;
 $error-background: lighten($error-border, 45%);
 $error-text: $error-border;
-
-// PAGER
-$pager-color: $link-color;
-$pager-color-hover: $link-color-hover;
-
-// FIELDSET
-$legend-font-weight: bold;
 
 // FORM ITEMS
 $form-item-margin: 0 0 $gutter 0;

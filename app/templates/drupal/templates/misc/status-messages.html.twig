@@ -15,33 +15,41 @@
  * Available variables:
  * - message_list: List of messages to be displayed, grouped by type.
  * - status_headings: List of all status types.
- * - display: (optional) May have a value of 'status' or 'error' when only
- *   displaying messages of that specific type.
  * - attributes: HTML attributes for the element, including:
  *   - class: HTML classes.
  */
 #}
+<div data-drupal-messages>
+{% block messages %}
 {% for type, messages in message_list %}
-
-  <div class="status-message {{ status_headings[type]|split(' ')[0] }}" role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label') }}>
-
-
-    {% if status_headings[type] %}
-      <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+  {%
+    set classes = [
+      'messages',
+      'messages--' ~ type,
+    ]
+  %}
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>
+    {% if type == 'error' %}
+      <div role="alert">
     {% endif %}
-
+      {% if status_headings[type] %}
+        <h2 class="visually-hidden">{{ status_headings[type] }}</h2>
+      {% endif %}
       {% if messages|length > 1 %}
-        <ul>
+        <ul class="messages__list">
           {% for message in messages %}
-            <li>{{ message }}</li>
+            <li class="messages__item">{{ message }}</li>
           {% endfor %}
         </ul>
-      
       {% else %}
-
         {{ messages|first }}
-
       {% endif %}
-    
+    {% if type == 'error' %}
+      </div>
+    {% endif %}
   </div>
+  {# Remove type specific classes. #}
+  {% set attributes = attributes.removeClass(classes) %}
 {% endfor %}
+{% endblock messages %}
+</div>

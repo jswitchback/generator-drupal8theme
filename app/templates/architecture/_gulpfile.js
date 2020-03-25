@@ -90,7 +90,7 @@ const featureDetection = () =>
   .src(gulpSettings.js.Dest + '/*.js')
   .pipe(modernizr(gulpSettings.modernizrOptions))
   .pipe(uglify())
-  .pipe(gulp.dest(gulpSettings.js.Dest));
+  .pipe(gulp.dest('vendor/modernizr/'));
 
 gulp.task('featureDetection', featureDetection);
 

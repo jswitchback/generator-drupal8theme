@@ -1,12 +1,8 @@
 /* @partial ...Elements/_links.scss */
 
-/**
- * 1. Remove the gray background color from active links in IE 10.
- */
 a {
   color: $link-color;
   text-decoration: $link-text-decoration;
-  background-color: transparent; /* 1 */
   transition-property: color;
   transition-duration: $input-transition-duration;
   transition-timing-function: ease-in;
@@ -19,17 +15,17 @@ a {
 
 a:hover {
   color: $link-color-hover;
-  text-decoration: none; /* ie8 */
+  text-decoration: underline;
 }
 
 a:focus {
   color: $link-color-focus;
-  text-decoration: none; /* ie8 */
+  text-decoration: underline;
 }
 
 a:active {
   color: $link-color-active;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 /*

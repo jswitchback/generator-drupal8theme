@@ -70,8 +70,19 @@
  *   in different view modes.
  */
 #}
-<article {{ attributes.addClass(nodeClass) }}>
-
+{%
+  set classes = [
+    not node.isPublished() ? 'unpublished',
+    view_mode ? 'display-' ~ view_mode|clean_class,
+  ]
+%}
+{%
+  set source = [
+    'node',
+    node.bundle
+  ]
+%}
+<article {{ attributes.addClass(classes).setAttribute('data-drupal-source', source|join('|')) }}>
   {{ title_prefix }}
   {% if not page %}
     <h2{{ title_attributes }}>

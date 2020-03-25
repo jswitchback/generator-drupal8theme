@@ -39,14 +39,18 @@
  */
 #}
 {%
-  set paragraphClass = [
-    'paragraph-' ~ paragraph.bundle|clean_class,
+  set classes = [
     view_mode ? 'display-' ~ view_mode|clean_class,
   ]
 %}
-
+{%
+  set source = [
+    'paragraph',
+    paragraph.bundle,
+  ]
+%}
 {% block paragraph %}
-  <div{{ attributes.addClass(paragraphClass) }}>
+  <div{{ attributes.addClass(classes).setAttribute('data-drupal-source', source|join('|')) }}>
     {% block content %}
       {{ content }}
     {% endblock %}

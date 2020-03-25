@@ -42,10 +42,8 @@
   }
 }
 
-.pager__current {
-  @include pager__item;
-  background-color: $disabled-background-color;
-  color: $body-font-color;
+.pager__item.is-active {
+  font-weight: bold;
 }
 
 .pager {
@@ -54,8 +52,7 @@
     margin-left: 2px;
     margin-bottom: 2px;
 
-    &.pager__current {
-      @include pager__item;
+    &.pager__item.is-active {
       padding: 4px 8px;
     }
   }

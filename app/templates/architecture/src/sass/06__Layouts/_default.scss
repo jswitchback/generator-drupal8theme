@@ -23,7 +23,8 @@ html {
 }
 
 .main,
-.region-footer {
+.footer-region,
+.header-region {
   @include layout-gutter;
   @include micro-clearfix;
 }

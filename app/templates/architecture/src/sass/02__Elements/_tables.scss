@@ -1,5 +1,32 @@
 /* @partial ...Elements/_tables.scss */
 
+// TABLES
+$table-tbody-border-style: solid;
+$table-tbody-border-width: 1px 1px 1px 1px;
+$table-tbody-border-color: darken($body-bgrd-color, 2%) transparent transparent
+  transparent;
+
+$table-th-border-style: solid;
+$table-th-border-width: 1px 1px 1px 1px;
+$table-th-border-color: transparent transparent darken($body-bgrd-color, 2%)
+  transparent;
+
+$table-tr-even-background: lighten($body-bgrd-color, 2%);
+$table-tr-even-border-style: solid;
+$table-tr-even-border-width: 1px 1px 1px 1px;
+$table-tr-even-border-color: darken($body-bgrd-color, 2%) transparent
+  darken($body-bgrd-color, 2%) transparent;
+
+$table-tr-odd-background: transparent;
+$table-tr-odd-border-style: solid;
+$table-tr-odd-border-width: 1px 1px 1px 1px;
+$table-tr-odd-border-color: darken($body-bgrd-color, 2%) transparent transparent
+  transparent;
+
+$table-tr-drag-background: $table-tr-odd-border-color;
+$table-td-padding: 0.25rem 0.5rem;
+$table-td-disabled-background: #ccc;
+
 table {
   border-collapse: collapse;
   border-spacing: 0;

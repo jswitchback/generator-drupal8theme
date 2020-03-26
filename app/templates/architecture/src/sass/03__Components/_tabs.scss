@@ -1,5 +1,7 @@
 /* @partial ...Components/_tabs.scss */
 
+$tabs-content-color--active: #ffffff;
+
 ul.primary-tabs,
 ul.secondary-tabs {
   @include micro-clearfix;
@@ -7,6 +9,8 @@ ul.secondary-tabs {
   margin: $gutter 0 ($gutter/2) 0;
   padding: 0;
   white-space: nowrap;
+  font-size: 0.857em;
+
   li {
     float: left; /* LTR */
     margin: 0 ($gutter/2) ($gutter/2) 0;
@@ -22,26 +26,26 @@ ul.primary-tabs {
   li {
     &.is-active {
       a {
-        background-color: $tabs-background-color--active;
+        background-color: $link-color;
         color: $tabs-content-color--active;
-        border: 1px solid $tabs-background-color--active;
+        border: 1px solid $link-color;
       }
     }
     a {
-      font-size: $tabs-font-size;
+      font-size: 0.915rem;
       text-transform: uppercase;
-      background-color: $tabs-background-color;
-      border: 1px solid $tabs-border-color;
-      border-top-radius: $tabs-border-radius;
-      color: $tabs-content-color;
-      padding: 0 1.5rem;
+      background-color: $ui-background-color;
+      border: 1px solid $ui-border-color;
+      border-top-radius: $ui-border-radius;
+      color: $body-font-color;
+      padding: 0.5rem 1rem;
       &:hover {
         text-decoration: none;
-        background-color: $tabs-background-color--active;
-        border: 1px solid $tabs-background-color--active;
+        background-color: $link-color;
+        border: 1px solid $link-color;
       }
       &.active {
-        background-color: $tabs-background-color--active;
+        background-color: $link-color;
         color: $tabs-content-color--active;
         &:hover {
         }

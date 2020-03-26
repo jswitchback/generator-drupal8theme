@@ -15,6 +15,7 @@ ul.secondary-tabs {
     float: left; /* LTR */
     margin: 0 ($gutter/2) ($gutter/2) 0;
   }
+
   a,
   a:link {
     display: block;
@@ -31,6 +32,7 @@ ul.primary-tabs {
         border: 1px solid $link-color;
       }
     }
+
     a {
       font-size: 0.915rem;
       text-transform: uppercase;
@@ -39,11 +41,16 @@ ul.primary-tabs {
       border-top-radius: $ui-border-radius;
       color: $body-font-color;
       padding: 0.5rem 1rem;
+      transition-property: backgorund-color;
+      transition-duration: $input-transition-duration;
+      transition-timing-function: ease-in;
+
       &:hover {
         text-decoration: none;
         background-color: $link-color;
         border: 1px solid $link-color;
       }
+
       &.active {
         background-color: $link-color;
         color: $tabs-content-color--active;

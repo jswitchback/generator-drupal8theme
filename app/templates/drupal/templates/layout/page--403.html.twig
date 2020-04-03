@@ -1,27 +1,33 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ * @see template_preprocess_page()
+ */
+#}
 <div class="page">
 
   <header role="banner" class="header">
-    <div class="layout-content">
+    <div class="header-inner layout-container">
       {{ page.header }}
-      <a href="#navigation" class="toggle-nav icon-info-circle">Toggle Nav</a>
+      <a href="#navigation" class="toggle-nav">Toggle Nav</a>
 
       <div id="navigation" class="navigation">
         {{ page.primary_menu }}
         {{ page.secondary_menu }}
       </div>
+
     </div>
   </header>
 
-  {{ page.breadcrumb }}
-
   {{ page.highlighted }}
-
-  {{ page.help }}
 
   <main role="main" class="main layout-container">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
     <div class="layout-content">
+      {{ page.breadcrumb }}
+      {{ page.help }}
       {# {{ page.content }} #}
       <div class="error-message-container">
         <h1>Access Denied.</h1>
@@ -59,4 +65,3 @@
   {% endif %}
 
 </div>{# /.page #}
-

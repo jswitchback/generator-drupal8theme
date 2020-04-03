@@ -77,7 +77,7 @@ regions:
   sidebar_first: "Sidebar first"
   sidebar_second: "Sidebar Second"
   footer: "Footer"
-  footer_secondary: "Footer"
+  footer_secondary: "Secondary footer"
   breadcrumb: "Breadcrumb"
 # Example hidden region
 # regions_hidden:

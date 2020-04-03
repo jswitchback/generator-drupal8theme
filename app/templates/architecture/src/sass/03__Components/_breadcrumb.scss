@@ -3,16 +3,15 @@
 /* Breadcrumb
    ========================================================================== */
 
-// .breadcrumb {
-//   @include rem('font-size', 14px);
-//   ol {
-//     margin: 0;
-//     padding: 0;
-//   }
-//   li {
-//     display: inline;
-//     list-style-type: none;
-//     margin: 0;
-//     padding: 0;
-//   }
-// }
+.breadcrumb {
+  ol {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}

@@ -15,6 +15,9 @@
       <li>
         {% if item.url %}
           <a href="{{ item.url }}">{{ item.text }}</a>
+          {% if not loop.last %}
+          <span> » </span>
+          {% endif %}
         {% else %}
           {{ item.text }}
         {% endif %}

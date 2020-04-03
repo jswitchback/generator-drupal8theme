@@ -1,1 +1,22 @@
 /* @partial ...Elements/_field.scss */
+
+.field-label {
+  font-weight: bold;
+}
+
+.field-label-inline {
+  display: flex;
+  flex-wrap: wrap;
+  .field__label {
+    padding-right: 0.5em;
+
+    &::after {
+      content: ":";
+    }
+  }
+}
+
+[dir="rtl"] .field-label-inline .field-label {
+  padding-right: 0;
+  padding-left: 0.5em;
+}

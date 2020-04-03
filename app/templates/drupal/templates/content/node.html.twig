@@ -79,7 +79,8 @@
 {%
   set source = [
     'node',
-    node.bundle
+    node.bundle,
+    view_mode
   ]
 %}
 <article {{ attributes.addClass(classes).setAttribute('data-drupal-source', source|join('|')) }}>

@@ -44,6 +44,12 @@
 
 .pager__item.is-active {
   font-weight: bold;
+
+  a {
+    background: transparent;
+    color: $link-color;
+    cursor: default;
+  }
 }
 
 .pager {

@@ -6,6 +6,7 @@
  */
 use Drupal\Core\Template\RenderWrapper;
 use Drupal\Core\Template\Attribute;
+use Drupal\Component\Utility\Html;
 
 //function <%= themeMachineName %>_preprocess_page(&$variables) {
 
@@ -216,10 +217,10 @@ function <%= themeMachineName %>_preprocess_field(array &$variables, $hook) {
 /**
  * Implements hook_form_alter().
  */
-//function <%= themeMachineName %>_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+function <%= themeMachineName %>_form_alter(&$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
   // Duplicate the form ID as a class so we can reduce specificity in our CSS.
-  // $form['#attributes']['class'][] = drupal_clean_css_identifier($form['#id']);
-//}
+  $form['#attributes']['class'][] = Html::cleanCssIdentifier($form['#id']);
+}
 
 /**
  * Implements hook_preprocess_details().

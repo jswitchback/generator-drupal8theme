@@ -73,7 +73,7 @@ yo drupal8theme
 Update local machine with latest code
 
 ```bash
-Update minor veriosn or patch:
+Update minor version or patch:
 npm update -g generator-drupal8theme
 or update no matter what
 npm uninstall -g generator-drupal8theme && npm install -g generator-drupal8theme
